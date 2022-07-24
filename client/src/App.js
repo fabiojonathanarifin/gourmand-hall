@@ -1,4 +1,5 @@
 import React from "react";
+import LikeButtons from "./components/LikeButtons";
 import {
   Navbar,
   Nav,
@@ -9,6 +10,7 @@ import {
   Form,
   Stack,
   Card,
+  CardGroup,
 } from "react-bootstrap";
 import "./App.css";
 import sample from "./assets/sample.jpeg";
@@ -39,8 +41,38 @@ function App() {
         </Container>
       </Navbar>
       <Container fluid="md mt-5 mb-5">
+        {/* Registration */}
+
+        <div className="mt-5">
+          <h1>Registration Form</h1>
+          <Form>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="username">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="username" placeholder="Enter username" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Enter password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="location">
+              <Form.Label>Location</Form.Label>
+              <Form.Control type="location" placeholder="Seattle, Washington" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Register
+            </Button>
+          </Form>
+        </div>
         {/* Login Form */}
         <div className="mt-5">
+          <h1>Login Form</h1>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -62,8 +94,9 @@ function App() {
             </Button>
           </Form>
         </div>
-        {/* Story Post */}
+        {/* Post */}
         <div className="mt-5 mb-5">
+          <h1>Post</h1>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Title</Form.Label>
@@ -81,6 +114,16 @@ function App() {
                 className="submissionfield"
               />
             </Form.Group>
+            <Row>
+              <div className="d-flex justify-content-end">
+                <Button className="me-2" variant="info" type="button">
+                  Save Draft
+                </Button>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Row>
           </Form>
         </div>
         {/* Index Story lists */}
@@ -111,8 +154,9 @@ function App() {
             </div>
           </div>
         </div>
-        {/* Story Post */}
+        {/* Story */}
         <div className="mt-5"></div>
+        <h1>Story</h1>
         <Card>
           <Card.Body>
             <Card.Title>The Best Meat in Town</Card.Title>
@@ -126,25 +170,64 @@ function App() {
               aliquid eum dignissimos ducimus dicta ex odio quam maiores quis!
               Omnis!
             </Card.Text>
-            <Stack direction="horizontal" gap={3}>
-              <Button variant="secondary">Tasty</Button>
-              <Button variant="info">Crunchy</Button>
-              <Button variant="danger">Slimy</Button>
-            </Stack>
+            <LikeButtons />
           </Card.Body>
           <Card.Footer>
             <Form>
               <Form.Group>
                 <Form.Control
                   as="textarea"
-                  rows={3}
+                  rows={2}
                   placeholder="Comment on the story.."
                   className="comment"
                 />
+                <div className="mt-3">
+                  <LikeButtons />
+                </div>
               </Form.Group>
             </Form>
           </Card.Footer>
         </Card>
+        {/* Pricing */}
+
+        <div className="mt-5 mb-5">
+          <h1>Pricing</h1>
+          <CardGroup>
+            <Card className="text-center">
+              <Card.Header>Featured</Card.Header>
+              <Card.Body>
+                <Card.Title>Gourmand</Card.Title>
+                <Card.Text>You're a Gourmand</Card.Text>
+                <Button variant="primary">$ 3.99</Button>
+              </Card.Body>
+              <Card.Footer className="text-muted">
+                iz nice a cheap boi
+              </Card.Footer>
+            </Card>
+            <Card className="text-center">
+              <Card.Header>Featured</Card.Header>
+              <Card.Body>
+                <Card.Title>Gourmet</Card.Title>
+                <Card.Text>You're a Gourmet</Card.Text>
+                <Button variant="primary">$ 6.99</Button>
+              </Card.Body>
+              <Card.Footer className="text-muted">
+                iz nice a cheap boi
+              </Card.Footer>
+            </Card>
+            <Card className="text-center">
+              <Card.Header>Featured</Card.Header>
+              <Card.Body>
+                <Card.Title>Gorilla</Card.Title>
+                <Card.Text>You're a Gorilla</Card.Text>
+                <Button variant="primary">$ 7.99</Button>
+              </Card.Body>
+              <Card.Footer className="text-muted">
+                iz nice a cheap boi
+              </Card.Footer>
+            </Card>
+          </CardGroup>
+        </div>
       </Container>
 
       {/* footer */}
