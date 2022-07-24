@@ -42,6 +42,7 @@ function App() {
         <Prices />
       </Container>
       {/* footer */}
+      <Footer />
     </div>
   );
 }

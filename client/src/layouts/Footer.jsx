@@ -1,3 +1,8 @@
+import {
+     Navbar,
+     Container
+} from "react-bootstrap"
+
 function Footer() {
   return (
     <Navbar bg="navbar" variant="dark" fixed="bottom">
