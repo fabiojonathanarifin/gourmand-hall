@@ -16,6 +16,7 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Container fluid="md mt-5 mb-5">
+        {/* Use react-router */}
         <Routes>
           <Route path="/story" element={<Story />} />
         </Routes>
