@@ -13,7 +13,9 @@ function NavigationBar() {
         <Nav className="me-auto">
           <Stack direction="horizontal" gap={4}>
             <Nav.Link>Home</Nav.Link>
-            <Nav.Link>Story</Nav.Link>
+            <LinkContainer to="/story">
+              <Nav.Link>Story</Nav.Link>
+            </LinkContainer>
             <Nav.Link>Post</Nav.Link>
             <Nav.Link>Registration</Nav.Link>
             <Nav.Link>Pricing</Nav.Link>
