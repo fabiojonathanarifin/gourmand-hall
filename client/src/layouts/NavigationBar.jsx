@@ -13,6 +13,7 @@ function NavigationBar() {
         <Nav className="me-auto">
           <Stack direction="horizontal" gap={4}>
             <Nav.Link>Home</Nav.Link>
+            {/* LinkContainer added */}
             <LinkContainer to="/story">
               <Nav.Link>Story</Nav.Link>
             </LinkContainer>

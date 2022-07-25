@@ -7,6 +7,7 @@ import StoryThumbnail from "./pages/StoryThumbnail";
 import Story from "./pages/Story";
 import Prices from "./pages/Prices";
 import Footer from "./layouts/Footer";
+import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "./App.css";
 
@@ -15,11 +16,15 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Container fluid="md mt-5 mb-5">
+        <Routes>
+          <Route path="/story" element={<Story />} />
+        </Routes>
         <RegistrationForm />
         <LoginFrom />
         <PostStory />
+        {/* <Story /> */}
+
         <StoryThumbnail />
-        <Story />
         <Prices />
       </Container>
       <Footer />
