@@ -9,7 +9,7 @@ import sample from "../assets/sample.jpeg"
 function StoryThumbnail() {
   return (
     <div className="mt-5">
-          <h1>JACKASS</h1>
+          <h1>StoryThumbnail</h1>
           <Card className="mb-3">
             <Row>
               <Col className="md-4">
@@ -28,8 +28,9 @@ function StoryThumbnail() {
                     <small className="text-muted" alt="location">
                       Rawamangun, Jakarta Timur
                     </small>
-                    <Button>View Article</Button>
+                    
                   </Card.Text>
+                  <Button>View Article</Button>
                 </Card.Body>
               </Col>
             </Row>

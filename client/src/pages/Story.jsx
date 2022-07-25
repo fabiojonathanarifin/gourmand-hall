@@ -1,5 +1,5 @@
 import {Card, Form} from 'react-bootstrap'
-import LikeButtons from "../components/LikeButtons";
+import LikeButtons from "../components/Buttons/LikeButtons";
 
 function Story() {
   return (
