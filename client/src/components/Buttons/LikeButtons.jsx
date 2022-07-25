@@ -1,16 +1,16 @@
 import React from "react";
 import { Stack } from "react-bootstrap";
-import NavButton from "./Button/NavButton";
+import GeneralButton from "./Button/GeneralButton";
 import "./Buttons.css";
 function LikeButtons() {
   return (
     <>
       <Stack direction="horizontal" gap={2}>
-        <NavButton Value="Tasty" />
-        <NavButton Value="Slimy" />
-        <NavButton Value="Crunchy" />
+        <GeneralButton Value="Tasty" />
+        <GeneralButton Value="Slimy" />
+        <GeneralButton Value="Crunchy" />
         <div className="ms-auto">
-          <NavButton Value="Submit" />
+          <GeneralButton Value="Submit" />
         </div>
       </Stack>
     </>

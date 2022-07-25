@@ -1,30 +1,35 @@
-import{
-    Navbar, Nav, Stack, Button, Container
-} from "react-bootstrap"
+import NavButton from "../components/Buttons/Button/NavButton";
+import { LinkContainer } from "react-router-bootstrap";
+
+import { Navbar, Nav, Stack, Button, Container } from "react-bootstrap";
 
 function NavigationBar() {
   return (
     <Navbar bg="navbar" variant="dark" fixed="top">
-        <Container fluid="md">
-          <div className="navbrand">
-            <Navbar.Brand>gourmandhall</Navbar.Brand>
-          </div>
-          <Nav className="me-auto">
-            <Stack direction="horizontal" gap={4}>
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-            </Stack>
-          </Nav>
-          <Nav>
-            <Stack direction="horizontal" gap={3}>
-              <Button className="navbtn justify-content-end p-2">Login</Button>
-              <div className="vr" />
-              <Button className="navbtn">Register</Button>
-            </Stack>
-          </Nav>
-        </Container>
-      </Navbar>
-  )
+      <Container fluid="md">
+        <div className="navbrand">
+          <Navbar.Brand>gourmandhall</Navbar.Brand>
+        </div>
+        <Nav className="me-auto">
+          <Stack direction="horizontal" gap={4}>
+            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>Story</Nav.Link>
+            <Nav.Link>Post</Nav.Link>
+            <Nav.Link>Registration</Nav.Link>
+            <Nav.Link>Pricing</Nav.Link>
+          </Stack>
+        </Nav>
+        <Nav>
+          <Stack direction="horizontal" gap={3}>
+            <div className="justify-content-end p-2">
+              <NavButton Value="Login" />
+            </div>
+            <div className="vr" />
+            <NavButton Value="Register" />
+          </Stack>
+        </Nav>
+      </Container>
+    </Navbar>
+  );
 }
-export default NavigationBar
+export default NavigationBar;

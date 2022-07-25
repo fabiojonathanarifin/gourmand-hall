@@ -1,12 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import "../Buttons.css";
-
-function NavButton(props) {
+function GeneralButton(props) {
   return (
-    <Button className="navbtn" variant="primary">
+    <Button className="generalbtn" variant="primary">
       {props.Value}
     </Button>
   );
 }
-export default NavButton;
+export default GeneralButton;
