@@ -1,5 +1,18 @@
-.likebuttons {
-    color: whitesmoke !important;
+.generalbtn {
+    color: #f5f5f5 !important;
     background-color: #CE5F31 !important;
     border: 1px solid #CE5F31 !important;
+}
+
+.navbtn {
+    border: 1px solid rgb(173, 171, 171) !important;
+    color: rgb(173, 171, 171) !important;
+    background-color: #ce5f31 !important;
+    transition: 0.6s !important;
+}
+
+.navbtn:hover {
+    border: 1px solid whitesmoke !important;
+    color: whitesmoke !important;
+    background-color: #ce5f31 !important;
 }
