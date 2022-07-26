@@ -8,27 +8,34 @@ function NavigationBar() {
     <Navbar bg="navbar" variant="dark" fixed="top">
       <Container fluid="md">
         <div className="navbrand">
-          <Navbar.Brand>gourmandhall</Navbar.Brand>
+          <LinkContainer to="/thumbnail">
+            <Navbar.Brand>gourmandhall</Navbar.Brand>
+          </LinkContainer>
         </div>
         <Nav className="me-auto">
           <Stack direction="horizontal" gap={4}>
-            <Nav.Link>Home</Nav.Link>
-            {/* LinkContainer added */}
-            <LinkContainer to="/story">
-              <Nav.Link>Story</Nav.Link>
+            <LinkContainer to="/thumbnail">
+              <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <Nav.Link>Post</Nav.Link>
-            <Nav.Link>Registration</Nav.Link>
-            <Nav.Link>Pricing</Nav.Link>
+            <LinkContainer to="/post">
+              <Nav.Link>Post</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/profile">
+              <Nav.Link>Profile</Nav.Link>
+            </LinkContainer>
           </Stack>
         </Nav>
         <Nav>
           <Stack direction="horizontal" gap={3}>
             <div className="justify-content-end p-2">
-              <NavButton Value="Login" />
+              <LinkContainer to="/login">
+                <NavButton Value="Login" />
+              </LinkContainer>
             </div>
             <div className="vr" />
-            <NavButton Value="Register" />
+            <LinkContainer to="/pricing">
+              <NavButton Value="Join Us" />
+            </LinkContainer>
           </Stack>
         </Nav>
       </Container>
