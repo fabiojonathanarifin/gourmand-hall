@@ -1,0 +1,10 @@
+.profilecard {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.imagsize {
+    max-width: 400px !important;
+    max-height: auto;
+}
