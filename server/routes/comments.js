@@ -7,6 +7,6 @@ router.post("/", createComment);
 
 //delete Comment
 router.delete("/:commentId", deleteReview);
-router.update("/:commentId", updateComment);
+router.put("/:commentId", updateComment);
 
 module.exports = router;
