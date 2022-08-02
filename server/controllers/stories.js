@@ -1,6 +1,6 @@
-const Post = require("../models/post");
+const Story = require("../models/post");
 
-module.exports.getPost = async (req, res) => {
+<module className="exports getStory"></module> = async (req, res) => {
   res.json({
     usersList: ["user 1", "user 2"],
   });

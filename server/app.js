@@ -5,9 +5,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 // import postRoutes from "./routes/posts.js";
-const postRoutes = require("./routes/posts");
+const postRoutes = require("./routes/stories");
 // const createUser = require("./routes/user");
-const getPost = require("./routes/posts");
+const getStory = require("./routes/stories");
 const app = express();
 const cors = require("cors");
 
@@ -18,9 +18,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-// app.use("/user", createUser);
-// app.use("/post", postRoutes);
-app.use("/userlist", getPost);
+app.use("/userlist", getStory);
 
 app.get("/", (req, res) => {
   res.send("HELLO FROM GOURMAND HALL!");
