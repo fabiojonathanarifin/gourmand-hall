@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavigationBar from "./layouts/NavigationBar";
 import LoginFrom from "./pages/LoginFrom";
 import PostStory from "./pages/PostStory";
@@ -8,20 +8,33 @@ import Profile from "./pages/Profile/Profile";
 import Pricing from "./pages/Pricing";
 import Footer from "./layouts/Footer";
 import { Routes, Route } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import "./App.css";
+import axios from "axios";
+// import { getQuote } from "./api/index";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  const getQuote = async () => {
+    const response = await axios.get("http://localhost:5000/userlist");
+    console.log(response.data);
+    setUsers(response.data);
+  };
+
   return (
     <div className="App">
       <NavigationBar />
-      <Container fluid="md mt-5 mb-5">
+      <Container className="contentmargin" fluid="md mb-5">
         {/* Use react-router */}
+        <Button onClick={getQuote}>Get Quote</Button>
+        <ul>
+          <li>{users.usersList}</li>
+        </ul>
         <Routes>
           <Route path="/thumbnail" element={<StoryThumbnail />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/profile" element={<Profile />} />
-
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/login" element={<LoginFrom />} />

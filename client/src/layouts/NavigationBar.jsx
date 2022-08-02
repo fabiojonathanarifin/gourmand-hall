@@ -1,6 +1,6 @@
 import NavButton from "../components/Buttons/Button/NavButton";
 import { LinkContainer } from "react-router-bootstrap";
-
+import { Link } from "react-router-dom";
 import { Navbar, Nav, Stack, Button, Container } from "react-bootstrap";
 
 function NavigationBar() {
@@ -28,14 +28,14 @@ function NavigationBar() {
         <Nav>
           <Stack direction="horizontal" gap={3}>
             <div className="justify-content-end p-2">
-              <LinkContainer to="/login">
+              <Link to="/login">
                 <NavButton Value="Login" />
-              </LinkContainer>
+              </Link>
             </div>
             <div className="vr" />
-            <LinkContainer to="/pricing">
+            <Link to="/pricing">
               <NavButton Value="Join Us" />
-            </LinkContainer>
+            </Link>
           </Stack>
         </Nav>
       </Container>
