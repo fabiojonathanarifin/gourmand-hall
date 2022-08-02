@@ -3,6 +3,8 @@ const router = express.Router();
 const { getStory } = require("../controllers/stories");
 
 router.get("/", getStory);
-// router.post("/", createPost);
+
+//undone
+router.post("/", createStory);
 
 module.exports = router;
