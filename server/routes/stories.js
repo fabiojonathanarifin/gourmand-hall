@@ -1,10 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const { getStory } = require("../controllers/stories");
+const stories = require("../controllers/stories");
 
-router.get("/", getStory);
+router.get("/", stories.getStory);
 
-//undone
-router.post("/", createStory);
+//create story & index
+// router.post("/", createStory);
+// router.post("/", index);
+
+//newposting form
+// router.get("/new", renderNewForm);
+
+//id
+// router.get("/:id", showStory);
+// router.put("/:id", updateStory);
+// router.delete("/:id", deleteStory);
+
+//edit form render
+// router.get("/:id/edit");
 
 module.exports = router;
