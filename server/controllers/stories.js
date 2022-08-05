@@ -1,9 +1,15 @@
-const Story = require("../models/post");
+const Story = require("../models/story");
+
+module.exports.createStory = async (req, res) => {
+  const story = new Story(req.body.story);
+  await story.save();
+};
 
 module.exports.getStory = async (req, res) => {
   res.json({
     usersList: ["user 1", "user 2"],
   });
+
   // try {
   //   const postMessage = "Baboon";
   //   const postMessages = await PostMessage.find();
