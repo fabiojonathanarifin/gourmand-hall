@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const postRoutes = require("./routes/stories");
 // const createUser = require("./routes/user");
 const getStory = require("./routes/stories");
+const createStory = require("./routes/stories");
 const app = express();
 const cors = require("cors");
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use("/userlist", getStory);
+app.use("/story", createStory);
 
 app.get("/", (req, res) => {
   res.send("HELLO FROM GOURMAND HALL!");

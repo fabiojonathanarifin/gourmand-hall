@@ -1,7 +1,7 @@
 const Story = require("../models/story");
 
 module.exports.createStory = async (req, res) => {
-  const story = new Story(req.body.story);
+  const story = new Story({ ...req.body.story });
   await story.save();
 };
 

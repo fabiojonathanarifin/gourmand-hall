@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavigationBar from "./layouts/NavigationBar";
 import LoginFrom from "./pages/LoginFrom";
-import PostStory from "./pages/PostStory";
+import PostStory from "./pages/PostStory/PostStory";
 import StoryThumbnail from "./pages/StoryThumbnail/StoryThumbnail";
 // import Story from "./pages/Story";
 import Profile from "./pages/Profile/Profile";
