@@ -11,23 +11,28 @@ import { Routes, Route } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import "./App.css";
 import axios from "axios";
-// import { getQuote } from "./api/index";
+import { getQuote } from "./api/index";
 
 function App() {
   const [users, setUsers] = useState([]);
 
-  const getQuote = async () => {
-    const response = await axios.get("http://localhost:5000/userlist");
-    console.log(response.data);
-    setUsers(response.data);
+  const btnOnClick = async () => {
+    let result = await getQuote();
+    console.log(result);
+    setUsers(result);
   };
+  // const getQuote = async () => {
+  //   const response = await axios.get("http://localhost:5000/userlist");
+  //   console.log(response.data);
+  //   setUsers(response.data);
+  // };
 
   return (
     <div className="App">
       <NavigationBar />
       <Container className="contentmargin" fluid="md mb-5">
         {/* Use react-router */}
-        <Button onClick={getQuote}>Get Quote</Button>
+        <Button onClick={btnOnClick}>Get Quote</Button>
         <ul>
           <li>{users.usersList}</li>
         </ul>
