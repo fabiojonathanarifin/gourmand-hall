@@ -9,21 +9,18 @@ function PostStory() {
   const [data, setData] = useState({
     title: "",
     story: "",
-    tags: [],
   });
 
-  function submit(e) {
+  let submit = async (e) => {
     const url = "http://localhost:5000";
     e.preventDefault();
-    axios
-      .post(`${url}/story`, {
-        title: data.title,
-        story: data.story,
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
-  }
+    let res = await axios.post(`${url}/story`, {
+      method: "POST",
+      body: JSON.stringify({ title: data.title, story: data.story }),
+    });
+    let resJson = await res.json();
+    console.log(resJson);
+  };
   function handle(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;

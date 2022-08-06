@@ -5,6 +5,7 @@ import PostStory from "./pages/PostStory/PostStory";
 import StoryThumbnail from "./pages/StoryThumbnail/StoryThumbnail";
 // import Story from "./pages/Story";
 import Profile from "./pages/Profile/Profile";
+import RegisterUser from "./pages/RegisterUser/RegisterUser";
 import Pricing from "./pages/Pricing";
 import Footer from "./layouts/Footer";
 import { Routes, Route } from "react-router-dom";
@@ -43,6 +44,7 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/login" element={<LoginFrom />} />
+          <Route path="/register" element={<RegisterUser />} />
         </Routes>
       </Container>
       <Footer />

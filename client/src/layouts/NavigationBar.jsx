@@ -23,6 +23,9 @@ function NavigationBar() {
             <LinkContainer to="/profile">
               <Nav.Link>Profile</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/register">
+              <Nav.Link>Register</Nav.Link>
+            </LinkContainer>
           </Stack>
         </Nav>
         <Nav>

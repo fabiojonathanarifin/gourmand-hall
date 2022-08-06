@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const postSchema = new Schema({
+const storySchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -25,4 +25,4 @@ const postSchema = new Schema({
   hidden: Boolean,
 });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Story", storySchema);
