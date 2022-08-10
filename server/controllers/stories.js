@@ -1,4 +1,6 @@
 const Story = require("../models/story");
+
+//error catch has to be fixed, moved to middleware
 module.exports.createStory = async (req, res) => {
   try {
     const story = new Story(req.body);
