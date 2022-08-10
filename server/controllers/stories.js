@@ -1,20 +1,12 @@
 const Story = require("../models/story");
-
 module.exports.createStory = async (req, res) => {
-  const story = new Story(
-    {
-      title: "",
-      story: "",
-    },
-    { _id: false }
-  );
-  await story.save();
-  res.send(story);
-  // await story.save(function (err) {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  // });
+  try {
+    const story = new Story(req.body);
+    await story.save();
+    res.send(story);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports.getStory = async (req, res) => {

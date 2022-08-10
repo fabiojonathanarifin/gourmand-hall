@@ -14,12 +14,18 @@ function PostStory() {
   let submit = async (e) => {
     const url = "http://localhost:5000";
     e.preventDefault();
-    let res = await axios.post(`${url}/story`, {
+    const myData = data;
+    console.log(myData);
+    const result = await axios({
+      url: `${url}/story`,
       method: "POST",
-      body: JSON.stringify({ title: data.title, story: data.story }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      data: JSON.stringify({ title: data.title, story: data.story }),
     });
-    let resJson = await res.json();
-    console.log(resJson);
+    console.log(result.data);
   };
   function handle(e) {
     const newdata = { ...data };
@@ -38,7 +44,7 @@ function PostStory() {
             id="title"
             value={data.title}
             type="text"
-            placeholder="Gourmand Hall"
+            placeholder="title"
           />
         </Form.Group>
         {/* tag use react-bootstrap-tagsinput npm */}
@@ -77,14 +83,14 @@ function PostStory() {
             className="submissionfield"
           />
         </Form.Group>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" variant="info" type="button">
-            Save Draft
-          </Button>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </div>
+        {/* <div className="d-flex justify-content-end"> */}
+        <Button className="me-2" variant="info" type="button">
+          Save Draft
+        </Button>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+        {/* </div> */}
       </Form>
     </div>
   );

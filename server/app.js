@@ -12,10 +12,14 @@ const createStory = require("./routes/stories");
 const app = express();
 const cors = require("cors");
 
-const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/gourmand-hall";
-mongoose.connect(dbUrl).catch((error) => console.log(error.message));
+// const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/gourmand-hall";
+mongoose
+  .connect("mongodb://localhost:27017/gourmand-hall")
+  .then(() => console.log("Database Connected!"))
+  .catch((error) => console.log(error.message));
 
 app.use(cors());
+//bodyParser allow the usage of req.body
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
