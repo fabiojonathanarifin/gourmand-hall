@@ -1,4 +1,4 @@
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Stack, Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import React, { useState } from "react";
 import "./RegisterUser.css";
@@ -6,15 +6,34 @@ function RegisterUser() {
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
+
     email: "",
     username: "",
     password: "",
+
     bio: "",
     twitter: "",
     linkedIn: "",
     facebook: "",
     instagram: "",
   });
+
+  const handleSubmit = async (e) => {
+    const resultData = { firstName };
+    const url = "http://localhost:5000";
+    e.preventDefault();
+    const myData = data;
+    console.log(myData);
+    const result = await axios({
+      url: `${url}/user`,
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Conetnt-Type": "application/json;charset=UTF-8",
+      },
+      data: JSON.stringify({}),
+    });
+  };
   function handleChange(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
@@ -69,28 +88,35 @@ function RegisterUser() {
             controlId="Bio"
             style={{ height: "100px" }}
           />
+          {/* Max 200 words limitation hasn't been applied */}
           <Form.Text className="text-muted">Maximum 200 words</Form.Text>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="socialMedia">
           <h3 className="mb-3">Social Media</h3>
-          <Form.Label className="mb-3" column sm="1">
-            Twitter
-          </Form.Label>
-          <Col sm="11">
-            <Form.Control type="text" placeholder="Input link" />
-          </Col>
-          <Form.Label className="mb-3" column sm="1">
-            LinkedIn
-          </Form.Label>
-          <Col sm="11">
-            <Form.Control type="text" placeholder="Input link" />
-          </Col>
-          <Form.Label className="mb-3" column sm="1">
-            Facebook
-          </Form.Label>
-          <Col sm="11">
-            <Form.Control type="text" placeholder="Input link" />
-          </Col>
+          <Stack direction="horizontal" gap={2}>
+            <Form.Label className="mb-3" column sm="1">
+              Twitter
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="Input link" />
+            </Col>
+          </Stack>
+          <Stack direction="horizontal" gap={2}>
+            <Form.Label className="mb-3" column sm="1">
+              LinkedIn
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="Input link" />
+            </Col>
+          </Stack>
+          <Stack direction="horizontal" gap={2}>
+            <Form.Label className="mb-3" column sm="1">
+              Facebook
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="Input link" />
+            </Col>
+          </Stack>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Hooman yes?" />

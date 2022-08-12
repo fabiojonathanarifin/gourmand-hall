@@ -8,7 +8,14 @@ const userSchema = new Schema({
     require: true,
   },
   lastName: String,
+  email: {
+    type: String,
+    lowercase: true,
+    unique: [true, "Your e-mail already existed"],
+    require: true,
+  },
   //username and password will be replaced by passportJS
+
   username: {
     type: String,
     require: true,
@@ -18,12 +25,7 @@ const userSchema = new Schema({
     type: String,
     require: true,
   },
-  email: {
-    type: String,
-    lowercase: true,
-    unique: [true, "Your e-mail already existed"],
-    require: true,
-  },
+
   profilePicture: {
     data: Buffer,
     type: String,

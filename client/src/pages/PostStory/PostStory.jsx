@@ -12,6 +12,7 @@ function PostStory() {
   });
 
   let handleSubmit = async (e) => {
+    const { title, story } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
     const myData = data;
@@ -23,7 +24,8 @@ function PostStory() {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
       },
-      data: JSON.stringify({ title: data.title, story: data.story }),
+      data: JSON.stringify({ title, story }),
+      // data: JSON.stringify({ title: data.title, story: data.story }),
     });
     console.log(result.data);
   };
