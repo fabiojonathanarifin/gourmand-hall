@@ -11,14 +11,24 @@ function RegisterUser() {
     password: "",
     bio: "",
     twitter: "",
-    // linkedIn: "",
-    // facebook: "",
-    // instagram: "",
+    linkedIn: "",
+    facebook: "",
+    instagram: "",
   });
 
   const handleSubmit = async (e) => {
-    const { firstName, lastName, email, username, password, bio, twitter } =
-      data;
+    const {
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+      bio,
+      twitter,
+      linkedIn,
+      facebook,
+      instagram,
+    } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
     const myData = data;
@@ -37,7 +47,7 @@ function RegisterUser() {
         username,
         password,
         bio,
-        socialMedia: { twitter },
+        socialMedia: { twitter, linkedIn, facebook, instagram },
       }),
     });
     console.log(result);
@@ -152,7 +162,13 @@ function RegisterUser() {
               LinkedIn
             </Form.Label>
             <Col sm="6">
-              <Form.Control type="text" placeholder="Input link" />
+              <Form.Control
+                onChange={(e) => handleChange(e)}
+                id="linkedIn"
+                value={data.linkedIn}
+                type="text"
+                placeholder="Input link"
+              />
             </Col>
           </Stack>
           <Stack direction="horizontal" gap={2}>
@@ -160,7 +176,27 @@ function RegisterUser() {
               Facebook
             </Form.Label>
             <Col sm="6">
-              <Form.Control type="text" placeholder="Input link" />
+              <Form.Control
+                onChange={(e) => handleChange(e)}
+                id="facebook"
+                value={data.facebook}
+                type="text"
+                placeholder="Input link"
+              />
+            </Col>
+          </Stack>
+          <Stack direction="horizontal" gap={2}>
+            <Form.Label className="mb-3" column sm="1">
+              Instagram
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control
+                onChange={(e) => handleChange(e)}
+                id="instagram"
+                value={data.instagram}
+                type="text"
+                placeholder="Input link"
+              />
             </Col>
           </Stack>
         </Form.Group>
