@@ -22,11 +22,6 @@ function App() {
     console.log(result);
     setUsers(result);
   };
-  // const getQuote = async () => {
-  //   const response = await axios.get("http://localhost:5000/userlist");
-  //   console.log(response.data);
-  //   setUsers(response.data);
-  // };
 
   return (
     <div className="App">
