@@ -15,7 +15,6 @@ const userSchema = new Schema({
     require: true,
   },
   //username and password will be replaced by passportJS
-
   username: {
     type: String,
     require: true,

@@ -19,7 +19,7 @@ function RegisterUser() {
   });
 
   const handleSubmit = async (e) => {
-    const resultData = { firstName };
+    const { firstName, lastName, email, username, password, bio } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
     const myData = data;
@@ -31,7 +31,14 @@ function RegisterUser() {
         Accept: "applicaiton/json",
         "Conetnt-Type": "application/json;charset=UTF-8",
       },
-      data: JSON.stringify({}),
+      data: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        username,
+        password,
+        bio,
+      }),
     });
   };
   function handleChange(e) {
@@ -44,21 +51,33 @@ function RegisterUser() {
   return (
     <Container className="mt-5 mb-5">
       <h1>BlackJack</h1>
-      <Form>
+      <Form onSubmit={(e) => handleSubmit(e)}>
         <Form.Group as={Row} className="mb-3" controlId="formName">
           <Col>
             <Form.Label>First Name</Form.Label>
-            <Form.Control type="text" placeholder="First Name" />
+            <Form.Control
+              value={data.firstName}
+              type="text"
+              placeholder="First Name"
+            />
           </Col>
           <Col>
             <Form.Label>Last Name</Form.Label>
-            <Form.Control type="text" placeholder="Last Name" />
+            <Form.Control
+              value={data.lastName}
+              type="text"
+              placeholder="Last Name"
+            />
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formEmail">
           <Col lg={6}>
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control
+              value={data.email}
+              type="email"
+              placeholder="Enter email"
+            />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -67,13 +86,21 @@ function RegisterUser() {
         <Form.Group as={Row} className="mb-3" controlId="forUsername">
           <Col md={6}>
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" placehodler="username" />
+            <Form.Control
+              value={data.username}
+              type="text"
+              placehodler="username"
+            />
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPassword">
           <Col md={6}>
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              value={data.password}
+              type="password"
+              placeholder="Password"
+            />
           </Col>
           <Col md={6}>
             <Form.Label>Confirm Password</Form.Label>
@@ -83,6 +110,7 @@ function RegisterUser() {
         <Form.Group className="mb-3">
           <Form.Label>Bio</Form.Label>
           <Form.Control
+            value={data.bio}
             as="textarea"
             placeholder="Present yourself"
             controlId="Bio"
