@@ -28,7 +28,7 @@ const userSchema = new Schema({
     data: Buffer,
     type: String,
   },
-  Bio: {
+  bio: {
     type: String,
   },
   socialMedia: {

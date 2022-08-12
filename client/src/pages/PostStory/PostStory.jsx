@@ -11,7 +11,7 @@ function PostStory() {
     story: "",
   });
 
-  let submit = async (e) => {
+  let handleSubmit = async (e) => {
     const url = "http://localhost:5000";
     e.preventDefault();
     const myData = data;
@@ -27,7 +27,7 @@ function PostStory() {
     });
     console.log(result.data);
   };
-  function handle(e) {
+  function handleChange(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
@@ -36,11 +36,11 @@ function PostStory() {
   return (
     <div className="mt-5 mb-5">
       <h1>Post</h1>
-      <Form onSubmit={(e) => submit(e)}>
+      <Form onSubmit={(e) => handleSubmit(e)}>
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control
-            onChange={(e) => handle(e)}
+            onChange={(e) => handleChange(e)}
             id="title"
             value={data.title}
             type="text"
@@ -74,7 +74,7 @@ function PostStory() {
         <Form.Group className="mb-3">
           <Form.Label>Example textarea</Form.Label>
           <Form.Control
-            onChange={(e) => handle(e)}
+            onChange={(e) => handleChange(e)}
             id="story"
             value={data.story}
             as="textarea"
