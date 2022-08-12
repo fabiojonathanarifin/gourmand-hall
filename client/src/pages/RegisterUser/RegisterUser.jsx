@@ -1,6 +1,17 @@
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-
+import axios from "axios";
+import React, { useState } from "react";
+import "./RegisterUser.css";
 function RegisterUser() {
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    password: "",
+    email: "",
+    bio: "",
+  });
+
   return (
     <Container className="mt-5 mb-5">
       <h1>BlackJack</h1>
