@@ -38,6 +38,12 @@ const userSchema = new Schema({
     facebook: String,
     instagram: String,
   },
+  followers: {
+    type: Number,
+  },
+  posts: {
+    type: Number,
+  },
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
 });

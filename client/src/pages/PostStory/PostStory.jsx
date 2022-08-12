@@ -50,6 +50,7 @@ function PostStory() {
         </Form.Group>
         {/* tag use react-bootstrap-tagsinput npm */}
         <Form.Group className="mb-3">
+          <Form.Label>Tags</Form.Label>
           <div className="input-group">
             <InputTags
               values={state}
