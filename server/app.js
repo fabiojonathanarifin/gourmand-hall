@@ -4,9 +4,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// import postRoutes from "./routes/posts.js";
-const postRoutes = require("./routes/stories");
+
 // const createUser = require("./routes/user");
+const createUser = require("./routes/users");
+
 const getStory = require("./routes/stories");
 const createStory = require("./routes/stories");
 const app = express();
@@ -23,6 +24,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
+app.use("/register", createUser);
 app.use("/userlist", getStory);
 app.use("/story", createStory);
 

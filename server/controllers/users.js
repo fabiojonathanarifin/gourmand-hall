@@ -1,4 +1,3 @@
-const story = require("../models/story");
 const User = require("../models/user");
 
 module.exports.createUser = async (req, res) => {

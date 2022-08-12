@@ -6,30 +6,29 @@ function RegisterUser() {
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
-
     email: "",
     username: "",
     password: "",
-
     bio: "",
     twitter: "",
-    linkedIn: "",
-    facebook: "",
-    instagram: "",
+    // linkedIn: "",
+    // facebook: "",
+    // instagram: "",
   });
 
   const handleSubmit = async (e) => {
-    const { firstName, lastName, email, username, password, bio } = data;
+    const { firstName, lastName, email, username, password, bio, twitter } =
+      data;
     const url = "http://localhost:5000";
     e.preventDefault();
     const myData = data;
     console.log(myData);
     const result = await axios({
-      url: `${url}/user`,
+      url: `${url}/register`,
       method: "POST",
       headers: {
-        Accept: "applicaiton/json",
-        "Conetnt-Type": "application/json;charset=UTF-8",
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
       },
       data: JSON.stringify({
         firstName,
@@ -38,9 +37,10 @@ function RegisterUser() {
         username,
         password,
         bio,
+        socialMedia: { twitter },
       }),
     });
-    console.log(result.data);
+    console.log(result);
   };
   const handleChange = (e) => {
     const newdata = { ...data };
@@ -138,7 +138,13 @@ function RegisterUser() {
               Twitter
             </Form.Label>
             <Col sm="6">
-              <Form.Control type="text" placeholder="Input link" />
+              <Form.Control
+                onChange={(e) => handleChange(e)}
+                id="twitter"
+                value={data.twitter}
+                type="text"
+                placeholder="Input link"
+              />
             </Col>
           </Stack>
           <Stack direction="horizontal" gap={2}>

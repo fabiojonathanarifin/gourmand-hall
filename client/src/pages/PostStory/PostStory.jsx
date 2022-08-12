@@ -25,9 +25,8 @@ function PostStory() {
         "Content-Type": "application/json;charset=UTF-8",
       },
       data: JSON.stringify({ title, story }),
-      // data: JSON.stringify({ title: data.title, story: data.story }),
     });
-    console.log(result.data);
+    console.log(result);
   };
   function handleChange(e) {
     const newdata = { ...data };
