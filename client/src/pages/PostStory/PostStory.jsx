@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { InputTags } from "react-bootstrap-tagsinput";
 import "./PostStory.css";
-
+// import {createUser} from "../../api/index";
 function PostStory() {
   const [state, setState] = useState([]);
   const [data, setData] = useState({
@@ -11,6 +11,7 @@ function PostStory() {
     story: "",
   });
 
+  // const createPost = () => {};
   let handleSubmit = async (e) => {
     const { title, story } = data;
     const url = "http://localhost:5000";
@@ -28,12 +29,12 @@ function PostStory() {
     });
     console.log(result);
   };
-  function handleChange(e) {
+  let handleChange = (e) => {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
     console.log(newdata);
-  }
+  };
   return (
     <div className="mt-5 mb-5">
       <h1>Post</h1>
