@@ -40,22 +40,25 @@ function RegisterUser() {
         bio,
       }),
     });
+    console.log(result.data);
   };
-  function handleChange(e) {
+  const handleChange = (e) => {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
     console.log(newdata);
-  }
+  };
 
   return (
     <Container className="mt-5 mb-5">
-      <h1>BlackJack</h1>
+      <h1>Register User</h1>
       <Form onSubmit={(e) => handleSubmit(e)}>
-        <Form.Group as={Row} className="mb-3" controlId="formName">
+        <Form.Group as={Row} className="mb-3">
           <Col>
             <Form.Label>First Name</Form.Label>
             <Form.Control
+              onChange={(e) => handleChange(e)}
+              id="firstName"
               value={data.firstName}
               type="text"
               placeholder="First Name"
@@ -64,16 +67,20 @@ function RegisterUser() {
           <Col>
             <Form.Label>Last Name</Form.Label>
             <Form.Control
+              onChange={(e) => handleChange(e)}
+              id="lastName"
               value={data.lastName}
               type="text"
               placeholder="Last Name"
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formEmail">
+        <Form.Group as={Row} className="mb-3">
           <Col lg={6}>
             <Form.Label>Email address</Form.Label>
             <Form.Control
+              onChange={(e) => handleChange(e)}
+              id="email"
               value={data.email}
               type="email"
               placeholder="Enter email"
@@ -83,20 +90,24 @@ function RegisterUser() {
             </Form.Text>
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="forUsername">
+        <Form.Group as={Row} className="mb-3">
           <Col md={6}>
             <Form.Label>Username</Form.Label>
             <Form.Control
+              onChange={(e) => handleChange(e)}
+              id="username"
               value={data.username}
               type="text"
               placehodler="username"
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formPassword">
+        <Form.Group as={Row} className="mb-3">
           <Col md={6}>
             <Form.Label>Password</Form.Label>
             <Form.Control
+              onChange={(e) => handleChange(e)}
+              id="password"
               value={data.password}
               type="password"
               placeholder="Password"
@@ -110,16 +121,17 @@ function RegisterUser() {
         <Form.Group className="mb-3">
           <Form.Label>Bio</Form.Label>
           <Form.Control
+            onChange={(e) => handleChange(e)}
+            id="bio"
             value={data.bio}
             as="textarea"
             placeholder="Present yourself"
-            controlId="Bio"
             style={{ height: "100px" }}
           />
           {/* Max 200 words limitation hasn't been applied */}
           <Form.Text className="text-muted">Maximum 200 words</Form.Text>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="socialMedia">
+        <Form.Group as={Row} className="mb-3">
           <h3 className="mb-3">Social Media</h3>
           <Stack direction="horizontal" gap={2}>
             <Form.Label className="mb-3" column sm="1">
@@ -146,7 +158,7 @@ function RegisterUser() {
             </Col>
           </Stack>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group className="mb-3">
           <Form.Check type="checkbox" label="Hooman yes?" />
         </Form.Group>
         <Button variant="primary" type="submit">
