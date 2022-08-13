@@ -11,6 +11,7 @@ module.exports.createStory = async (req, res) => {
   }
 };
 
+//currently displaying index 0 of the stories (the first data of the stories)
 module.exports.getIndex = async (req, res) => {
   const stories = await Story.find({});
   console.log(stories);
