@@ -17,6 +17,7 @@ import { getQuote, getIndex } from "./api/index";
 function App() {
   const [users, setUsers] = useState([]);
 
+  //the fetched data is the first(index 0) of the story
   const btnOnClick = async () => {
     let result = await getIndex();
     console.log(result);
