@@ -1,6 +1,7 @@
 import { Card, Row, Col, Button, Image } from "react-bootstrap";
 import sample from "../../assets/sample.jpeg";
 import "./StoryThumbnail.css";
+import { getIndex } from "../../api";
 
 function StoryThumbnail() {
   return (

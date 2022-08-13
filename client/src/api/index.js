@@ -6,6 +6,10 @@ export const getQuote = async () => {
   const response = await axios.get(`${url}/userlist`);
   return response.data;
 };
+export const getIndex = async () => {
+  const response = await axios.get(`${url}/index`);
+  return response.data;
+};
 
 // export const createPost = async () => {
 //   const response = await axios({

@@ -11,11 +11,16 @@ module.exports.createStory = async (req, res) => {
   }
 };
 
+module.exports.getIndex = async (req, res) => {
+  const stories = await Story.find({});
+  console.log(stories);
+  res.json(stories[0]);
+};
+
 module.exports.getStory = async (req, res) => {
   res.json({
     usersList: ["user 1", "user 2"],
   });
-
   // try {
   //   const postMessage = "Baboon";
   //   const postMessages = await PostMessage.find();

@@ -12,13 +12,13 @@ import { Routes, Route } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import "./App.css";
 import axios from "axios";
-import { getQuote } from "./api/index";
+import { getQuote, getIndex } from "./api/index";
 
 function App() {
   const [users, setUsers] = useState([]);
 
   const btnOnClick = async () => {
-    let result = await getQuote();
+    let result = await getIndex();
     console.log(result);
     setUsers(result);
   };
@@ -29,9 +29,7 @@ function App() {
       <Container className="contentmargin" fluid="md mb-5">
         {/* Use react-router */}
         <Button onClick={btnOnClick}>Get Quote</Button>
-        <ul>
-          <li>{users.usersList}</li>
-        </ul>
+        <ul>{users.title}</ul>
         <Routes>
           <Route path="/thumbnail" element={<StoryThumbnail />} />
           <Route path="/post" element={<PostStory />} />
