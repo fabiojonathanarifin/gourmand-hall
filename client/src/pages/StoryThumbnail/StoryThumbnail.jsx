@@ -4,6 +4,7 @@ import "./StoryThumbnail.css";
 import { getIndex } from "../../api";
 
 function StoryThumbnail() {
+  //use useEffect to display storyThumbnail
   return (
     <div className="mt-5">
       <h1>STORY Thumbnail</h1>
