@@ -33,7 +33,12 @@ function App() {
       <Container className="contentmargin" fluid="md mb-5">
         {/* Use react-router */}
         <Button onClick={btnOnClick}>Get Quote</Button>
-        <ul>{users.title}</ul>
+        <ul>
+          {users.map((user) => {
+            return <li key={user.id}>{user.title}</li>;
+          })}
+        </ul>
+        {/* <ul>{users.title}</ul> */}
         <Routes>
           <Route path="/thumbnail" element={<StoryThumbnail />} />
           <Route path="/post" element={<PostStory />} />
