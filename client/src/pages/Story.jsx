@@ -1,14 +1,23 @@
 import { Card, Form } from "react-bootstrap";
 import LikeButtons from "../components/Buttons/LikeButtons";
 // import { getStory } from "../api";
+import { getIndex } from "../api";
+import { useEffect } from "react";
+
 function Story() {
-  // const [stories, setStories] = useState([])
+  const [stories, setStories] = useState([]);
 
   // const displayStories = async () => {
   //   let result = await getStory();
   //   console.log(result);
   //   return result;
   // };
+
+  const displayPost = async () => {
+    const result = await getIndex();
+    setStories(result);
+  };
+
   return (
     <div className="mt-5">
       <h1>Story</h1>

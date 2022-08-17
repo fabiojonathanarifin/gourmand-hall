@@ -15,32 +15,50 @@ import axios from "axios";
 import { getQuote, getIndex } from "./api/index";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
+  // const [users, setUsers] = useState([]);
+  const [stories, setStories] = useState([]);
   //use useEffect to display storyThumbnail
   //specifically use useEffect to fetch the data (fetch in api>index, and import it here)
   // & set up the render in StoryThumbnail.jsx to display the fetched data.
   //the fetched data is the first(index 0) of the story
-  const btnOnClick = async () => {
-    let result = await getIndex();
-    console.log(result);
-    setUsers(result);
+  const data = async () => {
+    const response = await getIndex();
+    console.log(response);
+    setStories(response);
   };
+
+  useEffect(() => {
+    data();
+  }, []);
+  // const data = getIndex();
+  // console.log(data);
+  // setStories(data);
+  // useEffect(() => {
+  //   const btnOnClick = async () => {
+  //     let result = await getIndex();
+  //     setUsers(result);
+  //   };
+  // }, []);
 
   return (
     <div className="App">
       <NavigationBar />
       <Container className="contentmargin" fluid="md mb-5">
         {/* Use react-router */}
-        <Button onClick={btnOnClick}>Get Quote</Button>
-        <ul>
-          {users.map((user) => {
-            return <li key={user.id}>{user.title}</li>;
-          })}
-        </ul>
+        <Button>Get Quote</Button>
+        {/* <ul>
+          {users.map((user) => (
+            <li key={user.id}>{user.title}</li>
+          ))}
+        </ul> */}
         {/* <ul>{users.title}</ul> */}
         <Routes>
-          <Route path="/thumbnail" element={<StoryThumbnail />} />
+          <Route
+            path="/thumbnail"
+            element={stories.map((story) => (
+              <StoryThumbnail story={story} />
+            ))}
+          />
           <Route path="/post" element={<PostStory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/pricing" element={<Pricing />} />
