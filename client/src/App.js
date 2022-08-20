@@ -16,7 +16,6 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Container className="contentmargin" fluid="md mb-5">
-        <Button>Get Quote</Button>
         <Routes>
           <Route path="/index" element={<Index />} />
           <Route path="/post" element={<PostStory />} />
