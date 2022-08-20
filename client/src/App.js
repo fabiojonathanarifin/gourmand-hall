@@ -6,6 +6,7 @@ import Index from "./pages/Index/Index";
 import Profile from "./pages/Profile/Profile";
 import RegisterUser from "./pages/RegisterUser/RegisterUser";
 import Pricing from "./pages/Pricing";
+import Story from "./pages/Story";
 import Footer from "./layouts/Footer";
 import { Routes, Route } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/post" element={<PostStory />} />
           <Route path="/login" element={<LoginFrom />} />
           <Route path="/register" element={<RegisterUser />} />
+          <Route path="/story" element={<Story />} />
         </Routes>
       </Container>
       <Footer />
