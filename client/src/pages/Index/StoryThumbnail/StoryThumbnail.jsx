@@ -7,7 +7,6 @@ const StoryThumbnail = ({ story }) => {
   //use useEffect to display storyThumbnail
   return (
     <div className="mt-5">
-      <h1>Stories</h1>
       <Card className="mb-3">
         <Row>
           <Col md={2}>

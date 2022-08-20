@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NavigationBar from "./layouts/NavigationBar";
 import LoginFrom from "./pages/LoginFrom";
 import PostStory from "./pages/PostStory/PostStory";
@@ -10,38 +10,14 @@ import Footer from "./layouts/Footer";
 import { Routes, Route } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import "./App.css";
-import axios from "axios";
-import { getQuote, getIndex } from "./api/index";
 
 function App() {
-  // const [users, setUsers] = useState([]);
-  const [stories, setStories] = useState([]);
-
-  //getIndex is returning a promise
-  const data = async () => {
-    const response = await getIndex();
-    console.log(response);
-    setStories(response);
-  };
-
-  //useEffect displaying the data right away
-  useEffect(() => {
-    data();
-  }, []);
   return (
     <div className="App">
       <NavigationBar />
       <Container className="contentmargin" fluid="md mb-5">
-        {/* Use react-router */}
         <Button>Get Quote</Button>
         <Routes>
-          {/* data placed properly by using props on StoryThumbnail.jsx */}
-          {/* <Route
-            path="/thumbnail"
-            element={stories.map((story) => (
-              <StoryThumbnail story={story} />
-            ))}
-          /> */}
           <Route path="/index" element={<Index />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/profile" element={<Profile />} />

@@ -8,7 +8,7 @@ function NavigationBar() {
     <Navbar bg="navbar" variant="dark" fixed="top">
       <Container fluid="md">
         <div className="navbrand">
-          <LinkContainer to="/thumbnail">
+          <LinkContainer to="/index">
             <Navbar.Brand>gourmandhall</Navbar.Brand>
           </LinkContainer>
         </div>

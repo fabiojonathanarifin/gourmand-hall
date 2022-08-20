@@ -18,6 +18,7 @@ function Index() {
   }, []);
   return (
     <>
+      <h1>Stories</h1>
       {stories.map((story) => (
         <StoryThumbnail story={story} />
       ))}
