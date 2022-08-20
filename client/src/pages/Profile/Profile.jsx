@@ -2,7 +2,7 @@ import { Card, Row, Col, Button, Stack, Container } from "react-bootstrap";
 import "./Profile.css";
 import sample from "../../assets/sample.jpeg";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
-import StoryThumbnail from "../StoryThumbnail/StoryThumbnail";
+import StoryThumbnail from "../Index/StoryThumbnail/StoryThumbnail";
 function Profile() {
   return (
     <div className="profilecard">

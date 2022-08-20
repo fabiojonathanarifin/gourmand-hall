@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavigationBar from "./layouts/NavigationBar";
 import LoginFrom from "./pages/LoginFrom";
 import PostStory from "./pages/PostStory/PostStory";
-import StoryThumbnail from "./pages/StoryThumbnail/StoryThumbnail";
-// import Story from "./pages/Story";
+import Index from "./pages/Index/Index";
 import Profile from "./pages/Profile/Profile";
 import RegisterUser from "./pages/RegisterUser/RegisterUser";
 import Pricing from "./pages/Pricing";
@@ -37,12 +36,13 @@ function App() {
         <Button>Get Quote</Button>
         <Routes>
           {/* data placed properly by using props on StoryThumbnail.jsx */}
-          <Route
+          {/* <Route
             path="/thumbnail"
             element={stories.map((story) => (
               <StoryThumbnail story={story} />
             ))}
-          />
+          /> */}
+          <Route path="/index" element={<Index />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/pricing" element={<Pricing />} />
