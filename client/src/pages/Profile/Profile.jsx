@@ -2,7 +2,8 @@ import { Card, Row, Col, Button, Stack, Container } from "react-bootstrap";
 import "./Profile.css";
 import sample from "../../assets/sample.jpeg";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
-import StoryThumbnail from "../Index/StoryThumbnail/StoryThumbnail";
+import Index from "../Index/Index";
+
 function Profile() {
   return (
     <div className="profilecard">
@@ -45,8 +46,7 @@ function Profile() {
           </Card.Body>
         </Card>
         <Container>
-          <h1>Stories</h1>
-          <StoryThumbnail />
+          <Index />
         </Container>
       </Stack>
     </div>

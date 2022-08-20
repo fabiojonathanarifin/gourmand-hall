@@ -1,10 +1,8 @@
 import { Card, Row, Col, Button, Image } from "react-bootstrap";
 import sample from "../../../assets/sample.jpeg";
 import "./StoryThumbnail.css";
-// import { getIndex } from "../../api";
 
 const StoryThumbnail = ({ story }) => {
-  //use useEffect to display storyThumbnail
   return (
     <div className="mt-5">
       <Card className="mb-3">
