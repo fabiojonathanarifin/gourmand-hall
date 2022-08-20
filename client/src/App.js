@@ -25,7 +25,7 @@ function App() {
           <Route path="/post" element={<PostStory />} />
           <Route path="/login" element={<LoginFrom />} />
           <Route path="/register" element={<RegisterUser />} />
-          <Route path="/story" element={<Story />} />
+          <Route exact path="/story/:id" element={<Story />} />
         </Routes>
       </Container>
       <Footer />

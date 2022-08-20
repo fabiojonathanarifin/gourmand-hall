@@ -21,7 +21,7 @@ const StoryThumbnail = ({ story }) => {
                   {story.author}
                 </small>
               </Card.Text>
-              <Link to="/story">
+              <Link to={`/story/${story._id}`}>
                 <GeneralButton Value="View More" />
               </Link>
             </Card.Body>

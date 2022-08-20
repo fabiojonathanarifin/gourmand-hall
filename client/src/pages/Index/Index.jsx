@@ -20,7 +20,7 @@ function Index() {
     <>
       <h1>Stories</h1>
       {stories.map((story) => (
-        <StoryThumbnail story={story} />
+        <StoryThumbnail key={story._id} story={story} />
       ))}
     </>
   );
