@@ -1,7 +1,7 @@
 import NavButton from "../components/Buttons/Button/NavButton";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Stack, Button, Container } from "react-bootstrap";
+import { Navbar, Nav, Stack, Container } from "react-bootstrap";
 
 function NavigationBar() {
   return (

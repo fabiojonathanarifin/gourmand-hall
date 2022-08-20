@@ -9,7 +9,7 @@ import Pricing from "./pages/Pricing";
 import Story from "./pages/Story";
 import Footer from "./layouts/Footer";
 import { Routes, Route } from "react-router-dom";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./App.css";
 
 function App() {

@@ -1,4 +1,4 @@
-import { Card, Row, Col, Button, Image } from "react-bootstrap";
+import { Card, Row, Col, Image } from "react-bootstrap";
 import sample from "../../../assets/sample.jpeg";
 import "./StoryThumbnail.css";
 import GeneralButton from "../../../components/Buttons/Button/GeneralButton";

@@ -1,4 +1,4 @@
-import { Card, Row, Col, Button, Stack, Container } from "react-bootstrap";
+import { Card, Row, Col, Stack, Container } from "react-bootstrap";
 import "./Profile.css";
 import sample from "../../assets/sample.jpeg";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
