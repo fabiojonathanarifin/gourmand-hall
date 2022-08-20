@@ -26,6 +26,7 @@ module.exports.showStory = async (req, res) => {
       },
     })
     .populate("author");
+  res.json(story);
 };
 // module.exports.createPost = async (req, res) => {
 //   const post = req.body;

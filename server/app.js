@@ -10,6 +10,7 @@ const createUser = require("./routes/users");
 
 const getStory = require("./routes/stories");
 const createStory = require("./routes/stories");
+const showStory = require("./routes/stories");
 const app = express();
 const cors = require("cors");
 const getIndex = require("./routes/stories");
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use("/register", createUser);
 app.use("/userlist", getStory);
 app.use("/story", createStory);
+app.use("/story/:id", showStory);
 app.use("/index", getIndex);
 
 app.get("/", (req, res) => {

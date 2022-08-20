@@ -6,8 +6,15 @@ export const getQuote = async () => {
   const response = await axios.get(`${url}/userlist`);
   return response.data;
 };
+
 export const getIndex = async () => {
   const response = await axios.get(`${url}/index`);
+  return response.data;
+};
+
+//hasn't applied it to the client side
+export const showStory = async () => {
+  const response = await axios.get(`${url}/story/:id`);
   return response.data;
 };
 

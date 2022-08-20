@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
-const { createStory, getIndex } = require("../controllers/stories");
+const { createStory, getIndex, showStory } = require("../controllers/stories");
 
 // create story & index
 router.post("/", catchAsync(createStory));
@@ -12,7 +12,7 @@ router.get("/", catchAsync(getIndex));
 // router.get("/new", renderNewForm);
 
 // id
-// router.get("/:id", showStory);
+router.get("/:id", catchAsync(showStory));
 // router.put("/:id", updateStory);
 // router.delete("/:id", deleteStory);
 
