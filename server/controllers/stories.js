@@ -11,13 +11,22 @@ module.exports.createStory = async (req, res) => {
   }
 };
 
-//currently displaying index 0 of the stories (the first data of the stories)
 module.exports.getIndex = async (req, res) => {
   const stories = await Story.find({});
   console.log(stories);
   res.json(stories);
 };
 
+module.exports.showStory = async (req, res) => {
+  const story = await await User.findById(req.params.id)
+    .populate({
+      path: "comments",
+      populate: {
+        path: "author",
+      },
+    })
+    .populate("author");
+};
 // module.exports.createPost = async (req, res) => {
 //   const post = req.body;
 //   const newPost = new PostMessage(post);
