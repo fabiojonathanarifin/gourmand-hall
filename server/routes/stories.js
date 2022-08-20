@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
-const { getStory, createStory, getIndex } = require("../controllers/stories");
-
-// router.get("/", getStory);
+const { createStory, getIndex } = require("../controllers/stories");
 
 // create story & index
 router.post("/", catchAsync(createStory));
