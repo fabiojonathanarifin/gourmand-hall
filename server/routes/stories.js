@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const catchAsync = require("../utils/catchAsync");
 const { getStory, createStory, getIndex } = require("../controllers/stories");
 
 // router.get("/", getStory);
 
 // create story & index
-router.post("/", createStory);
+router.post("/", catchAsync(createStory));
 // router.post("/", index);
-router.get("/", getIndex);
+router.get("/", catchAsync(getIndex));
 
 // newposting form
 // router.get("/new", renderNewForm);
