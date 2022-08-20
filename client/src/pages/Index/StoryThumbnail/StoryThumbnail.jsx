@@ -2,6 +2,7 @@ import { Card, Row, Col, Button, Image } from "react-bootstrap";
 import sample from "../../../assets/sample.jpeg";
 import "./StoryThumbnail.css";
 import GeneralButton from "../../../components/Buttons/Button/GeneralButton";
+import { Link } from "react-router-dom";
 
 const StoryThumbnail = ({ story }) => {
   return (
@@ -20,7 +21,9 @@ const StoryThumbnail = ({ story }) => {
                   {story.author}
                 </small>
               </Card.Text>
-              <GeneralButton Value="View More" />
+              <Link to="/story">
+                <GeneralButton Value="View More" />
+              </Link>
             </Card.Body>
           </Col>
         </Row>
