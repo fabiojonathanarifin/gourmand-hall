@@ -1,6 +1,7 @@
 import { Card, Row, Col, Button, Image } from "react-bootstrap";
 import sample from "../../../assets/sample.jpeg";
 import "./StoryThumbnail.css";
+import GeneralButton from "../../../components/Buttons/Button/GeneralButton";
 
 const StoryThumbnail = ({ story }) => {
   return (
@@ -19,7 +20,7 @@ const StoryThumbnail = ({ story }) => {
                   {story.author}
                 </small>
               </Card.Text>
-              <Button>View Article</Button>
+              <GeneralButton Value="View More" />
             </Card.Body>
           </Col>
         </Row>
