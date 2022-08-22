@@ -1,22 +1,32 @@
+import React, { useState, useEffect } from "react";
 import { Card, Form } from "react-bootstrap";
 import LikeButtons from "../components/Buttons/LikeButtons";
-
+import { showStory } from "../api";
+import { useParams } from "react-router-dom";
 function Story() {
+  const [story, setStory] = useState([]);
+
+  //param store id from the parameter
+  const param = useParams();
+
+  //showStory is returning a promise
+  //api> index> params as id
+  const data = async () => {
+    const response = await showStory(param.id);
+    setStory(response);
+  };
+
+  useEffect(() => {
+    data();
+  }, []);
+
   return (
     <div className="mt-5">
-      <h1>Story</h1>
+      <h1></h1>
       <Card>
         <Card.Body>
-          <Card.Title>The Best Meat in Town</Card.Title>
-          <Card.Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa libero
-            nisi possimus temporibus! Esse officiis nam eius veniam magni dolore
-            exercitationem, architecto non iusto impedit reprehenderit facilis
-            eveniet quae. Voluptatum. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Aut placeat cupiditate nihil, cum ullam
-            consectetur doloribus illum mollitia eveniet aliquid eum dignissimos
-            ducimus dicta ex odio quam maiores quis! Omnis!
-          </Card.Text>
+          <Card.Title>{story.title}</Card.Title>
+          <Card.Text>{story.story}</Card.Text>
           <LikeButtons />
         </Card.Body>
         <Card.Footer>

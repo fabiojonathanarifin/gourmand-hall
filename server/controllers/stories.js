@@ -18,7 +18,7 @@ module.exports.getIndex = async (req, res) => {
 };
 
 module.exports.showStory = async (req, res) => {
-  const story = await await User.findById(req.params.id)
+  const story = await await Story.findById(req.params.id)
     .populate({
       path: "comments",
       populate: {
