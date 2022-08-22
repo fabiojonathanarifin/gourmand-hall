@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../controllers/users");
 const catchAsync = require("../utils/catchAsync");
-//sample
 const { createUser } = require("../controllers/users");
-router.post("/", catchAsync(createUser));
+
+router.post("/register", catchAsync(createUser));
 
 //registration
 // router.get("/register", user.renderRegister);
