@@ -13,8 +13,8 @@ export const getIndex = async () => {
 };
 
 //hasn't applied it to the client side
-export const showStory = async () => {
-  const response = await axios.get(`${url}/story/:id`);
+export const showStory = async (id) => {
+  const response = await axios.get(`${url}/story/` + id);
   return response.data;
 };
 
