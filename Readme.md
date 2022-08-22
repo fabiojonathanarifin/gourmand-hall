@@ -1,7 +1,9 @@
 Developer Notes:
 
 Client:
-- Finish showStory routing on Client side to show story per id
+- figure out login using passportJS
+- work on profile based on login
+- make comment work on Story.jsx (showStory) page 
 
 Server:
-- prepared showStory routing
+- passportJS integration for login
