@@ -7,3 +7,7 @@ Client:
 
 Server:
 - passportJS integration for login
+
+for passport:
+-npm install passport
+https://github.com/jaredhanson/passport
