@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("./models/comment");
 
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+
 const storyRoutes = require("./routes/stories");
 
 const userRoutes = require("./routes/users");
@@ -14,6 +17,9 @@ mongoose
   .connect("mongodb://localhost:27017/gourmand-hall")
   .then(() => console.log("Database Connected!"))
   .catch((error) => console.log(error.message));
+
+//PassportJS
+passport.use(new LocalStrategy());
 
 app.use(cors());
 //bodyParser allow the usage of req.body
