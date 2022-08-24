@@ -16,15 +16,15 @@ const UserSchema = new Schema({
     require: true,
   },
   //username and password will be replaced by passportJS
-  username: {
-    type: String,
-    require: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    require: true,
-  },
+  // username: {
+  //   type: String,
+  //   require: true,
+  //   unique: true,
+  // },
+  // password: {
+  //   type: String,
+  //   require: true,
+  // },
 
   profilePicture: {
     data: Buffer,
