@@ -11,3 +11,7 @@ Server:
 for passport:
 -npm install passport
 https://github.com/jaredhanson/passport
+
+NOTE:
+cookie-parser installed yet unused
+connect-flash installed yet unused

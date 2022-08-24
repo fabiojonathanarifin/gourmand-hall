@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 require("./models/comment");
 
 const session = require("express-session");
-const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
@@ -23,8 +22,6 @@ mongoose
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-//cookie
-
 //session
 const sessionConfig = {
   secret: "badsecret",
@@ -36,10 +33,13 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
 };
+
 app.use(session(sessionConfig));
-app.use(flash());
 
 //PassportJS
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy());
 
 app.use(cors());
 
