@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationBar from "./layouts/NavigationBar";
-import LoginFrom from "./pages/LoginFrom";
+import LoginForm from "./pages/LoginForm";
 import PostStory from "./pages/PostStory/PostStory";
 import Index from "./pages/Index/Index";
 import Profile from "./pages/Profile/Profile";
@@ -23,7 +23,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/post" element={<PostStory />} />
-          <Route path="/login" element={<LoginFrom />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterUser />} />
           <Route exact path="/story/:id" element={<Story />} />
         </Routes>

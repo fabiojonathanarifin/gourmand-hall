@@ -53,12 +53,12 @@ passport.serializeUser(User.serializeUser());
 //unstore user activity in the session: passport-local-mongoose
 passport.deserializeUser(User.deserializeUser());
 
-app.get("/greet", (req, res) => {
-  res.send("Hi Fellas");
-});
-
 app.use("/", userRoutes);
 app.use("/", storyRoutes);
+
+app.get("/", function (req, res) {
+  res.send({ status: "success" });
+});
 
 app.get("/", (req, res) => {
   res.send("HELLO FROM GOURMAND HALL!");

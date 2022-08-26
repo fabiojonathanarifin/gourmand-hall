@@ -5,7 +5,8 @@ module.exports.createUser = async (req, res) => {
   const user = new User({ email, username });
   const registeredUser = await User.register(user, password);
   console.log(registeredUser);
-  // const user = new User(req.body);
-  // await user.save();
-  // res.send(user);
+};
+
+module.exports.login = async (req, res) => {
+  console.log("login route accessed");
 };

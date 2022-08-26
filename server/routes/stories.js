@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
 const { createStory, getIndex, showStory } = require("../controllers/stories");
+const { isLoggedIn } = require("../middleware");
 
 // create story & index
 router.post("/story", catchAsync(createStory));

@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
-const { createUser } = require("../controllers/users");
+const passport = require("passport");
+const { createUser, login } = require("../controllers/users");
+const { get } = require("mongoose");
 
 router.post("/register", catchAsync(createUser));
 
@@ -11,7 +13,13 @@ router.post("/register", catchAsync(createUser));
 
 //login
 // router.get("/login", user.renderLogin);
-// router.post("/login", user.login);
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/login",
+  }),
+  catchAsync(login)
+);
 
 //logout
 // router.get("logout", users.logout);
