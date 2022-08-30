@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
+import { loginUser } from "../api";
 
 function LoginForm() {
   const [data, setData] = useState({
@@ -34,6 +35,14 @@ function LoginForm() {
     setData(newdata);
     console.log(newdata);
   };
+
+  const loginData = async () => {
+    const response = await loginUser();
+    console.log(response);
+  };
+  useEffect(() => {
+    loginData();
+  }, []);
 
   return (
     <div className="mt-5">

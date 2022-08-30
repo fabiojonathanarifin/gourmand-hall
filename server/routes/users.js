@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
 const passport = require("passport");
-const { createUser, login } = require("../controllers/users");
+const { createUser, loginUser } = require("../controllers/users");
 
 router.post("/register", catchAsync(createUser));
 
@@ -11,13 +11,12 @@ router.post("/register", catchAsync(createUser));
 // router.post("/register", user.register);
 
 //login
-// router.get("/login", user.renderLogin);
 router.post(
   "/login",
   passport.authenticate("local", {
     failureRedirect: "/login",
   }),
-  catchAsync(login)
+  catchAsync(loginUser)
 );
 
 //logout
