@@ -36,13 +36,13 @@ function LoginForm() {
     console.log(newdata);
   };
 
-  const loginData = async () => {
-    const response = await loginUser();
-    console.log(response);
-  };
-  useEffect(() => {
-    loginData();
-  }, []);
+  // const loginData = async () => {
+  //   const response = await loginUser();
+  //   console.log(response);
+  // };
+  // useEffect(() => {
+  //   loginData();
+  // }, []);
 
   return (
     <div className="mt-5">
