@@ -11,13 +11,14 @@ router.post("/register", catchAsync(createUser));
 // router.post("/register", user.register);
 
 //login
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    failureRedirect: "/login",
-  }),
-  catchAsync(loginUser)
-);
+// router.post(
+//   "/login",
+//   passport.authenticate("local", {
+//     failureRedirect: "/login",
+//   }),
+//   loginUser
+// );
+router.post("/login", loginUser);
 
 //logout
 // router.get("logout", users.logout);

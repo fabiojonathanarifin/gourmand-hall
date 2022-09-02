@@ -8,6 +8,7 @@ Client:
 Server:
 - isLoggedIn middleware created
 - continue passportJS integration for login
+- work on confirmed password for validation
 
 
 
