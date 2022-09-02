@@ -36,10 +36,15 @@ module.exports.loginUser = async (req, res, next) => {
     if (err) throw err;
     if (!user) res.json({ success: false, message: "No User Exist" });
     else {
-      res.json({
-        success: true,
-        message: "Successfully Authenticated, User Logged In",
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send("Succesfully Authenticated");
+        console.log(req.user);
       });
+      // res.json({
+      //   success: true,
+      //   message: "Successfully Authenticated, User Logged In",
+      // });
     }
   })(req, res, next);
 };
