@@ -14,7 +14,15 @@ export const getIndex = async () => {
 
 //hasn't applied it to the client side
 export const showStory = async (id) => {
-  const response = await axios.get(`${url}/story/` + id);
+  const response = await axios({
+    url: `${url}/story/` + id,
+    method: "GET",
+    withCredentials: true,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
   return response.data;
 };
 
