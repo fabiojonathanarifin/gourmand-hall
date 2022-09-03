@@ -28,6 +28,9 @@ function LoginForm() {
         password,
       }),
     });
+    if (result.data.success === true) {
+      window.location.replace("/index");
+    }
     console.log(result);
   };
   const handleChange = (e) => {
@@ -44,10 +47,6 @@ function LoginForm() {
       url: "http://localhost:5000/user",
     }).then((res) => console.log(res));
   };
-  // const userData = async () => {
-  //   const response = await getUser();
-  //   console.log(response);
-  // };
 
   return (
     <div className="mt-5">
