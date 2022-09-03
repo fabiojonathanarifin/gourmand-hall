@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
-import { loginUser } from "../api";
+// import { loginUser, getUser } from "../api";
 
 function LoginForm() {
   const [data, setData] = useState({
@@ -18,6 +18,7 @@ function LoginForm() {
     const result = await axios({
       url: `${url}/login`,
       method: "POST",
+      withCredentials: true,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
@@ -36,16 +37,24 @@ function LoginForm() {
     console.log(newdata);
   };
 
-  // const loginData = async () => {
-  //   const response = await loginUser();
+  const getUser = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:5000/user",
+    }).then((res) => console.log(res));
+  };
+  // const userData = async () => {
+  //   const response = await getUser();
   //   console.log(response);
   // };
-  // useEffect(() => {
-  //   loginData();
-  // }, []);
 
   return (
     <div className="mt-5">
+      <div>
+        <h1>Get User</h1>
+        <button onClick={(e) => getUser(e.target.value)}>get User info</button>
+      </div>
       <h1>Login Form</h1>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <Form.Group className="mb-3">

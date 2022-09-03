@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { InputTags } from "react-bootstrap-tagsinput";
 import "./PostStory.css";
-// import {createUser} from "../../api/index";
+
 function PostStory() {
   const [state, setState] = useState([]);
   const [data, setData] = useState({
@@ -11,7 +11,6 @@ function PostStory() {
     story: "",
   });
 
-  // const createPost = () => {};
   let handleSubmit = async (e) => {
     const { title, story } = data;
     const url = "http://localhost:5000";

@@ -6,7 +6,6 @@ const User = require("./models/user");
 
 const session = require("express-session");
 const passport = require("passport");
-const LocalStrategy = require("passport-local");
 
 const storyRoutes = require("./routes/stories");
 const userRoutes = require("./routes/users");
@@ -26,7 +25,12 @@ mongoose
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 //Session
 const sessionConfig = {
@@ -45,6 +49,11 @@ app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 //--------------------------------------- END OF MIDDLEWARE -----------------------------------------//
 

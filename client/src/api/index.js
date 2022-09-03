@@ -23,6 +23,11 @@ export const loginUser = async () => {
   return response.data;
 };
 
+// export const getUser = async () => {
+//   const response = await axios.get(`${url}/user`);
+//   return response;
+// };
+
 // export const createPost = async () => {
 //   const response = await axios({
 //     url: `${url}/story`,

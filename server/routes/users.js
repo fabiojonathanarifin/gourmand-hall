@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
 const passport = require("passport");
-const { createUser, loginUser } = require("../controllers/users");
+const { createUser, loginUser, getUser } = require("../controllers/users");
 
 router.post("/register", catchAsync(createUser));
 
@@ -19,6 +19,8 @@ router.post("/register", catchAsync(createUser));
 //   loginUser
 // );
 router.post("/login", loginUser);
+
+router.get("/user", getUser);
 
 //logout
 // router.get("logout", users.logout);

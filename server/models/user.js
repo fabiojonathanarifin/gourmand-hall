@@ -15,17 +15,6 @@ const UserSchema = new Schema({
     unique: [true, "Your e-mail already existed"],
     require: true,
   },
-  //username and password will be replaced by passportJS
-  // username: {
-  //   type: String,
-  //   require: true,
-  //   unique: true,
-  // },
-  // password: {
-  //   type: String,
-  //   require: true,
-  // },
-
   profilePicture: {
     data: Buffer,
     type: String,

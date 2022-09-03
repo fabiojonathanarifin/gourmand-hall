@@ -11,6 +11,8 @@ Server:
 - work on confirmed password for validation
 
 
+TIP:
+req.user(passportJS) can only be accessed from the FE if withCredentials: true is used on fetch/axios
 
 NOTE:
 cookie-parser installed yet unused

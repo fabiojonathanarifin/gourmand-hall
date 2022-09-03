@@ -36,6 +36,7 @@ function RegisterUser() {
     const result = await axios({
       url: `${url}/register`,
       method: "POST",
+      withCredentials: true,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
