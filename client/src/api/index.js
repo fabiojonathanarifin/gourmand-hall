@@ -31,6 +31,15 @@ export const loginUser = async () => {
   return response.data;
 };
 
+export const getUser = async () => {
+  const response = await axios({
+    method: "GET",
+    withCredentials: true,
+    url: "http://localhost:5000/user",
+  });
+  return response.data;
+};
+
 // export const getUser = async () => {
 //   const response = await axios.get(`${url}/user`);
 //   return response;
