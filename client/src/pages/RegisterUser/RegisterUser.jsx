@@ -9,6 +9,7 @@ function RegisterUser() {
     email: "",
     username: "",
     password: "",
+    confirmPassword: "",
     bio: "",
     twitter: "",
     linkedIn: "",
@@ -23,6 +24,7 @@ function RegisterUser() {
       email,
       username,
       password,
+      confirmPassword,
       bio,
       twitter,
       linkedIn,
@@ -31,6 +33,11 @@ function RegisterUser() {
     } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
+    if (password !== confirmPassword) {
+      const message =
+        "password and password validator is not the same, please redo password";
+      return console.log(message);
+    }
     const myData = data;
     console.log(myData);
     const result = await axios({
@@ -47,6 +54,7 @@ function RegisterUser() {
         email,
         username,
         password,
+        confirmPassword,
         bio,
         socialMedia: { twitter, linkedIn, facebook, instagram },
       }),
@@ -126,7 +134,13 @@ function RegisterUser() {
           </Col>
           <Col md={6}>
             <Form.Label>Confirm Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              onChange={(e) => handleChange(e)}
+              id="confirmPassword"
+              value={data.confirmPassword}
+              type="password"
+              placeholder="Password"
+            />
           </Col>
         </Form.Group>
         <Form.Group className="mb-3">
