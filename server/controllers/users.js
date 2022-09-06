@@ -28,6 +28,6 @@ module.exports.loginUser = async (req, res, next) => {
 };
 
 module.exports.getUser = (req, res) => {
-  res.send(req.user); // the req.user(passporJS) store the entire user that has been authenticated(logged in) inside of it.
+  res.json({ success: true, userData: req.user }); // the req.user(passporJS) store the entire user that has been authenticated(logged in) inside of it.
   console.log(req.user);
 };

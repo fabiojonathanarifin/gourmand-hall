@@ -5,7 +5,7 @@ module.exports.createStory = async (req, res) => {
   try {
     const story = new Story(req.body);
     await story.save();
-    req.flash("sucess", "successfully made a new Story!");
+    req.json({ success: true, message: "Successfully Created a Story" });
   } catch (error) {
     console.log(error);
   }
