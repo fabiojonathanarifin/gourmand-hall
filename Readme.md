@@ -6,9 +6,9 @@ Client:
 - make comment work on Story.jsx (showStory) page 
 
 Server:
-- isLoggedIn middleware created
 - continue passportJS integration for login
 - work on confirmed password for validation
+- add location for modelSchema
 
 
 TIP:
