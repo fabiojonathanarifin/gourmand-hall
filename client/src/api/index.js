@@ -31,6 +31,19 @@ export const loginUser = async () => {
   return response.data;
 };
 
+export const logoutUser = async () => {
+  const response = await axios({
+    url: `${url}/logout`,
+    method: "GET",
+    withCredentials: true,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
+  return response.data;
+};
+
 export const getUser = async () => {
   const response = await axios({
     method: "GET",
