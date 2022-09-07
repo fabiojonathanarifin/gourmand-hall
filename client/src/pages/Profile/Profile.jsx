@@ -34,8 +34,12 @@ function Profile() {
                   alt="profile photo"
                 />
                 <div className="mt-4">
-                  <Card.Text>Followers: 4,590</Card.Text>
-                  <Card.Text>Stories: 120</Card.Text>
+                  <Card.Text>
+                    Followers: {data.followers ? `${data.followers}` : 0}
+                  </Card.Text>
+                  <Card.Text>
+                    Stories: {data.postsAmt ? `${data.postsAmt}` : 0}
+                  </Card.Text>
                 </div>
               </Col>
               <Col md={8}>
@@ -57,6 +61,30 @@ function Profile() {
                     <Card.Subtitle className="mb-3">About me</Card.Subtitle>
                     <Card.Text>{data.bio ? `${data.bio}` : 0}</Card.Text>
                   </Card.Body>
+                  {/* <Card.Text>
+                    Twitter:
+                    {data.socialMedia.twitter
+                      ? `${data.socialMedia.twitter}`
+                      : 0}
+                  </Card.Text>
+                  <Card.Text>
+                    LinkedIn:
+                    {data.socialMedia.linkedIn
+                      ? `${data.socialMedia.linkedIn}`
+                      : 0}
+                  </Card.Text>
+                  <Card.Text>
+                    Facebook:
+                    {data.socialMedia.facebook
+                      ? `${data.socialMedia.facebook}`
+                      : 0}
+                  </Card.Text>
+                  <Card.Text>
+                    Instagram:
+                    {data.socialMedia.instagram
+                      ? `${data.socialMedia.instagram}`
+                      : 0}
+                  </Card.Text> */}
                 </Card>
                 <Stack className="mt-3" direction="horizontal" gap={3}>
                   <GeneralButton Value="Follow" />
