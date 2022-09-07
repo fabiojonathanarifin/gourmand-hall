@@ -1,9 +1,19 @@
+import React from "react";
 import NavButton from "../components/Buttons/Button/NavButton";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Stack, Container } from "react-bootstrap";
+import { Navbar, Nav, Stack, Container, Button } from "react-bootstrap";
+import { logoutUser } from "../api/index";
 
 function NavigationBar() {
+  let handleClick = async (e) => {
+    const response = await logoutUser();
+    if (response.success === true) {
+      window.location.replace("/login");
+    }
+    console.log(response);
+  };
+
   return (
     <Navbar bg="navbar" variant="dark" fixed="top">
       <Container fluid="md">
@@ -34,6 +44,13 @@ function NavigationBar() {
               <Link to="/login">
                 <NavButton Value="Login" />
               </Link>
+              <Button
+                onClick={(e) => handleClick(e)}
+                variant="primary"
+                type="button"
+              >
+                Logout
+              </Button>
             </div>
             <div className="vr" />
             <Link to="/pricing">
