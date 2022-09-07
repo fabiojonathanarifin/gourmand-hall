@@ -13,7 +13,6 @@ module.exports.createStory = async (req, res) => {
 
 module.exports.getIndex = async (req, res) => {
   const stories = await Story.find({});
-  console.log(stories);
   res.json(stories);
 };
 

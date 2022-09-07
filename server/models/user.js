@@ -31,11 +31,20 @@ const UserSchema = new Schema({
   followers: {
     type: Number,
   },
-  posts: {
+  postsAmt: {
     type: Number,
   },
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+  birthday: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  website: {
+    type: String,
+  },
 });
 
 //add passportJS here for username and password

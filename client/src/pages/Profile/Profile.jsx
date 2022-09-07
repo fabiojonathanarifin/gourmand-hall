@@ -6,6 +6,7 @@ import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 import Index from "../Index/Index";
 import axios from "axios";
 import { getUser } from "../../api/index";
+
 function Profile() {
   const [data, setData] = useState({});
   const handleData = async () => {
@@ -15,7 +16,6 @@ function Profile() {
     }
     setData(response.userData);
   };
-
   useEffect(() => {
     handleData();
   }, []);
@@ -43,15 +43,19 @@ function Profile() {
                   {data.firstName} {data.lastName}
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {data.location}
+                  {data.location ? `${data.location}` : 0}
                 </Card.Subtitle>
-                <Card.Text>Email: {data.email}</Card.Text>
-                <Card.Text>Website: www.gourmandhall.com</Card.Text>
-                <Card.Text>Birthday: September 20, 1996</Card.Text>
+                <Card.Text>Email: {data.email ? `${data.email}` : 0}</Card.Text>
+                <Card.Text>
+                  Website: {data.website ? `${data.website}` : 0}
+                </Card.Text>
+                <Card.Text>
+                  Birthday: {data.birthday ? `${data.birthday}` : 0}
+                </Card.Text>
                 <Card>
                   <Card.Body>
                     <Card.Subtitle className="mb-3">About me</Card.Subtitle>
-                    <Card.Text>{data.bio}</Card.Text>
+                    <Card.Text>{data.bio ? `${data.bio}` : 0}</Card.Text>
                   </Card.Body>
                 </Card>
                 <Stack className="mt-3" direction="horizontal" gap={3}>
