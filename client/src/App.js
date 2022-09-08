@@ -7,9 +7,11 @@ import Profile from "./pages/Profile/Profile";
 import RegisterUser from "./pages/RegisterUser/RegisterUser";
 import Pricing from "./pages/Pricing";
 import Story from "./pages/Story";
+import LocalFavorites from "./pages/Index/LocalFavorites/LocalFavorites";
 import Footer from "./layouts/Footer";
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
+
 import "./App.css";
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
       <Container className="contentmargin" fluid="md mb-5">
         <Routes>
           <Route path="/index" element={<Index />} />
+          <Route path="/localfavorites" element={<LocalFavorites />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/pricing" element={<Pricing />} />
