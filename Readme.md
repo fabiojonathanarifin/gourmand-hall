@@ -4,8 +4,6 @@ Client:
 - make comment work on Story.jsx (showStory) page 
 - fix Profile.jsx (social media)
 - add a page to input additional information, such as birthday, location, etc
-- add Local fav feature
--continue localRestaurant.jsx (check if create Restaurant is working) & add getRestaurant
 
 
 
