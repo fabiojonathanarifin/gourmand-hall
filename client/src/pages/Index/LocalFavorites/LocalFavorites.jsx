@@ -11,6 +11,7 @@ import {
   Col,
 } from "react-bootstrap";
 import GeneralButton from "../../../components/Buttons/Button/GeneralButton";
+import { getRestaurants } from "../../../api/index";
 
 function LocalFavorites() {
   const [data, setData] = useState({
@@ -52,6 +53,12 @@ function LocalFavorites() {
     newdata[e.target.id] = e.target.value;
     setData(newdata);
     console.log(newdata);
+  };
+
+  //getRestaurants
+  const restaurantData = async () => {
+    const result = await getRestaurants();
+    console.log(result);
   };
 
   return (
@@ -147,6 +154,10 @@ function LocalFavorites() {
           </Card.Body>
         </Card>
       </Form>
+
+      <Button variant="primary" onClick={() => restaurantData()}>
+        get restaurant data
+      </Button>
       <div className="mt-5">
         <Table striped>
           <thead>
