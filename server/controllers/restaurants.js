@@ -11,11 +11,11 @@ module.exports.createRestaurant = async (req, res) => {
   }
 };
 
-// module.exports.getRestaurant = async (req, res) => {
-//   try {
-//     const restaurants = await Restaurant.find({});
-//     res.json(restaurants);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+module.exports.getRestaurants = async (req, res) => {
+  try {
+    const restaurants = await Restaurant.find({});
+    res.json({ success: true, restaurantData: restaurants });
+  } catch (error) {
+    console.log(error);
+  }
+};
