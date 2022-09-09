@@ -1,23 +1,35 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Table, Stack, Form, Card, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Button,
+  Table,
+  Stack,
+  Form,
+  Card,
+  Row,
+  Col,
+} from "react-bootstrap";
 import GeneralButton from "../../../components/Buttons/Button/GeneralButton";
 
 function LocalFavorites() {
   const [data, setData] = useState({
     name: "",
-    location: "",
+    state: "",
+    city: "",
     google: "",
     website: "",
     socialMedia: "",
   });
 
   const createRestaurant = async (e) => {
-    const { name, location, google, website, socialMedia } = data;
+    const { name, state, city, google, website, socialMedia } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
-    const restaurant = await axios({
-      url: `${url}/register`,
+    const myData = data;
+    console.log(myData);
+    const result = await axios({
+      url: `${url}/localfavorites`,
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -25,13 +37,21 @@ function LocalFavorites() {
       },
       data: JSON.stringify({
         name,
-        location,
+        state,
+        city,
         google,
         website,
         socialMedia,
       }),
     });
-    console.log(restaurant);
+    console.log(result);
+  };
+
+  const handleChange = (e) => {
+    const newdata = { ...data };
+    newdata[e.target.id] = e.target.value;
+    setData(newdata);
+    console.log(newdata);
   };
 
   return (
@@ -48,11 +68,23 @@ function LocalFavorites() {
               <Card.Subtitle>Your Location</Card.Subtitle>
               <Col>
                 <Form.Label>State/Province</Form.Label>
-                <Form.Control type="text" placeholder="Oregon" />
+                <Form.Control
+                  onChange={(e) => handleChange(e)}
+                  id="state"
+                  value={data.state}
+                  type="text"
+                  placeholder="Oregon"
+                />
               </Col>
               <Col>
                 <Form.Label>City</Form.Label>
-                <Form.Control type="text" placeholder="Portland" />
+                <Form.Control
+                  onChange={(e) => handleChange(e)}
+                  id="city"
+                  value={data.city}
+                  type="text"
+                  placeholder="Portland"
+                />
               </Col>
               <div className="mt-3">
                 <GeneralButton Value="Lock Location" />
@@ -62,20 +94,37 @@ function LocalFavorites() {
               <Stack direction="horizontal" className="mb-3" gap={2}>
                 <Form.Label>Restaurant</Form.Label>
                 <Col>
-                  <Form.Control type="text" placeholder="Nodoguro" />
+                  <Form.Control
+                    onChange={(e) => handleChange(e)}
+                    id="name"
+                    value={data.name}
+                    type="text"
+                    placeholder="Nodoguro"
+                  />
                 </Col>
               </Stack>
               <Stack direction="horizontal" className="mb-3" gap={2}>
                 <Form.Label>Google Link</Form.Label>
                 <Col>
-                  <Form.Control type="text" />
+                  <Form.Control
+                    onChange={(e) => handleChange(e)}
+                    id="google"
+                    value={data.google}
+                    type="text"
+                  />
                 </Col>
               </Stack>
 
               <Stack direction="horizontal" className="mb-3" gap={2}>
                 <Form.Label>Website(optional)</Form.Label>
                 <Col>
-                  <Form.Control type="text" placeholder="www.nodoguropdx.com" />
+                  <Form.Control
+                    onChange={(e) => handleChange(e)}
+                    id="website"
+                    value={data.website}
+                    type="text"
+                    placeholder="www.nodoguropdx.com"
+                  />
                 </Col>
               </Stack>
 
@@ -83,13 +132,18 @@ function LocalFavorites() {
                 <Form.Label>Social Media(optional)</Form.Label>
                 <Col>
                   <Form.Control
+                    onChange={(e) => handleChange(e)}
+                    id="socialMedia"
+                    value={data.socialMedia}
                     type="text"
                     placeholder="www.twitter.com/nodoguro"
                   />
                 </Col>
               </Stack>
             </Form.Group>
-            <GeneralButton Value="Submit" type="submit" />
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
           </Card.Body>
         </Card>
       </Form>
