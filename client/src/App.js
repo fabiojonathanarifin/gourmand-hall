@@ -4,6 +4,7 @@ import LoginForm from "./pages/LoginForm";
 import PostStory from "./pages/PostStory/PostStory";
 import Index from "./pages/Index/Index";
 import Profile from "./pages/Profile/Profile";
+import AdditionalData from "./pages/Profile/AdditionalData/AdditionalData";
 import RegisterUser from "./pages/RegisterUser/RegisterUser";
 import Pricing from "./pages/Pricing";
 import Story from "./pages/Story";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/localfavorites" element={<LocalFavorites />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/addinfo" element={<AdditionalData />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/post" element={<PostStory />} />
           <Route path="/login" element={<LoginForm />} />
