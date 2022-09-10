@@ -28,23 +28,16 @@ const UserSchema = new Schema({
     facebook: String,
     instagram: String,
   },
-  followers: {
-    type: Number,
-  },
-  postsAmt: {
-    type: Number,
-  },
+  followers: Number,
+  postsAmt: Number,
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
-  birthday: {
-    type: String,
-  },
-  location: {
-    type: String,
-  },
-  website: {
-    type: String,
-  },
+  birthday: String,
+  website: String,
+  state: String,
+  city: String,
+  favCuisine: String,
+  favFood: String,
 });
 
 //add passportJS here for username and password
