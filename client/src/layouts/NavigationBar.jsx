@@ -44,13 +44,16 @@ function NavigationBar() {
               <Link to="/login">
                 <NavButton Value="Login" />
               </Link>
-              <Button
+              <div onClick={(e) => handleClick(e)}>
+                <NavButton Value="Logout" />
+              </div>
+              {/* <Button
                 onClick={(e) => handleClick(e)}
                 variant="primary"
                 type="button"
               >
                 Logout
-              </Button>
+              </Button> */}
             </div>
             <div className="vr" />
             <Link to="/pricing">

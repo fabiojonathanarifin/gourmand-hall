@@ -61,30 +61,22 @@ function Profile() {
                     <Card.Subtitle className="mb-3">About me</Card.Subtitle>
                     <Card.Text>{data.bio ? `${data.bio}` : 0}</Card.Text>
                   </Card.Body>
-                  {/* <Card.Text>
-                    Twitter:
-                    {data.socialMedia.twitter
-                      ? `${data.socialMedia.twitter}`
-                      : 0}
+                  <Card.Text>
+                    Twitter:{" "}
+                    {data.socialMedia ? `${data.socialMedia.twitter}` : 0}
                   </Card.Text>
                   <Card.Text>
                     LinkedIn:
-                    {data.socialMedia.linkedIn
-                      ? `${data.socialMedia.linkedIn}`
-                      : 0}
+                    {data.socialMedia ? `${data.socialMedia.linkedIn}` : 0}
                   </Card.Text>
                   <Card.Text>
                     Facebook:
-                    {data.socialMedia.facebook
-                      ? `${data.socialMedia.facebook}`
-                      : 0}
+                    {data.socialMedia ? `${data.socialMedia.facebook}` : 0}
                   </Card.Text>
                   <Card.Text>
                     Instagram:
-                    {data.socialMedia.instagram
-                      ? `${data.socialMedia.instagram}`
-                      : 0}
-                  </Card.Text> */}
+                    {data.socialMedia ? `${data.socialMedia.instagram}` : 0}
+                  </Card.Text>
                 </Card>
                 <Stack className="mt-3" direction="horizontal" gap={3}>
                   <GeneralButton Value="Follow" />
