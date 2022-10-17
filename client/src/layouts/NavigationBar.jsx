@@ -39,21 +39,14 @@ function NavigationBar() {
           </Stack>
         </Nav>
         <Nav>
-          <Stack direction="horizontal" gap={3}>
+          <Stack direction="horizontal" gap={2}>
             <div className="justify-content-end p-2">
               <Link to="/login">
                 <NavButton Value="Login" />
               </Link>
-              <div onClick={(e) => handleClick(e)}>
-                <NavButton Value="Logout" />
-              </div>
-              {/* <Button
-                onClick={(e) => handleClick(e)}
-                variant="primary"
-                type="button"
-              >
-                Logout
-              </Button> */}
+            </div>
+            <div onClick={(e) => handleClick(e)}>
+              <NavButton Value="Logout" />
             </div>
             <div className="vr" />
             <Link to="/pricing">
