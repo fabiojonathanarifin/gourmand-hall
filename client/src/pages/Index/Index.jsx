@@ -13,15 +13,19 @@ function Index() {
   };
 
   //useEffect display the data when page is opened
+  //slice&reverse to reverse the order of index, received from database
   useEffect(() => {
     data();
   }, []);
   return (
     <>
       <h1>Stories</h1>
-      {stories.map((story) => (
-        <StoryThumbnail key={story._id} story={story} />
-      ))}
+      {stories
+        .slice(0)
+        .reverse()
+        .map((story) => (
+          <StoryThumbnail key={story._id} story={story} />
+        ))}
     </>
   );
 }

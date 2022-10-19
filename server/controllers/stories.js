@@ -18,7 +18,7 @@ module.exports.getIndex = async (req, res) => {
 
 module.exports.showStory = async (req, res) => {
   if (req.isAuthenticated()) {
-    const story = await await Story.findById(req.params.id)
+    const story = await Story.findById(req.params.id)
       .populate({
         path: "comments",
         populate: {
