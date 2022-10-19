@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
+import GeneralButton from "../components/Buttons/Button/GeneralButton";
 // import { loginUser, getUser } from "../api";
 
 function LoginForm() {
@@ -80,6 +81,7 @@ function LoginForm() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

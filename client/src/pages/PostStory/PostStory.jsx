@@ -18,6 +18,7 @@ function PostStory() {
   });
   //add author; author is the one in the current session
   //=========input tags================
+  //https://github.com/react-tags/react-tags
   const handleDelete = (i) => {
     setTags(tags.filter((tag, index) => index !== i));
   };
