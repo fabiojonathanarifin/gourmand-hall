@@ -1,20 +1,46 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { InputTags } from "react-bootstrap-tagsinput";
+import { WithContext as ReactTags } from "react-tag-input";
 import "./PostStory.css";
 
+const KeyCodes = {
+  comma: 188,
+  enter: 13,
+};
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
+
 function PostStory() {
-  const [state, setState] = useState([]);
+  const [tags, setTags] = useState([]);
   const [data, setData] = useState({
     title: "",
     story: "",
-    tags: [],
   });
   //add author; author is the one in the current session
+  // const tagsIds=== = tags.map((tag) => tag.id);
+  //=========input tags================
+  const handleDelete = (i) => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
+
+  const handleAddition = (tag) => {
+    setTags([...tags, tag]);
+  };
+
+  const handleDrag = (tag, currPos, newPos) => {
+    const newTags = tags.slice();
+
+    newTags.splice(currPos, 1);
+    newTags.splice(newPos, 0, tag);
+
+    // re-render
+    setTags(newTags);
+  };
+  //=============input tags end=============
 
   let handleSubmit = async (e) => {
-    const { title, story, tags } = data;
+    const tagsIds = tags.map((tag) => tag.id);
+    const { title, story } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
     const myData = data;
@@ -26,7 +52,7 @@ function PostStory() {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
       },
-      data: JSON.stringify({ title, story, tags }),
+      data: JSON.stringify({ title, story, tags: tagsIds }),
     });
     console.log(result);
   };
@@ -52,7 +78,22 @@ function PostStory() {
         </Form.Group>
         {/* tag use react-bootstrap-tagsinput npm */}
         <Form.Group className="mb-3">
-          <Form.Label>Tags</Form.Label>
+          <div className="app">
+            <h1> React Tags Example </h1>
+            <div>
+              <ReactTags
+                tags={tags}
+                delimiters={delimiters}
+                handleDelete={handleDelete}
+                handleAddition={handleAddition}
+                handleDrag={handleDrag}
+                inputFieldPosition="top"
+                autocomplete
+              />
+              {/* <h3>{console.log(tagsIds)}</h3> */}
+            </div>
+          </div>
+          {/* <Form.Label>Tags</Form.Label>
           <div className="input-group">
             <InputTags
               values={state}
@@ -73,7 +114,7 @@ function PostStory() {
             {state.map((item, index) => (
               <li key={item + index}>{item}</li>
             ))}
-          </ol>
+          </ol>*/}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Example textarea</Form.Label>
