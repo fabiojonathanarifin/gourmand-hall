@@ -17,7 +17,6 @@ function PostStory() {
     story: "",
   });
   //add author; author is the one in the current session
-  // const tagsIds=== = tags.map((tag) => tag.id);
   //=========input tags================
   const handleDelete = (i) => {
     setTags(tags.filter((tag, index) => index !== i));
