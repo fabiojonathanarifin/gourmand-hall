@@ -4,14 +4,14 @@ import "./Profile.css";
 import sample from "../../assets/sample.jpeg";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 import Index from "../Index/Index";
-import axios from "axios";
+// import axios from "axios";
 import { getUser } from "../../api/index";
 
 function Profile() {
   const [data, setData] = useState({});
   const handleData = async () => {
     const response = await getUser();
-    if ((response.success = false)) {
+    if (response.success === false) {
       window.location.replace(response.redirectDestination);
     }
     setData(response.userData);
