@@ -17,7 +17,12 @@ const StoryThumbnail = ({ story }) => {
               <Card.Title>{story.title}</Card.Title>
               <Card.Text> {story.story}</Card.Text>
               <Card.Text>
-                <small className="text-muted" alt="location">
+                <small className="text-muted" alt="tags">
+                  {story.tags.map((tag) => tag + " ")}
+                </small>
+              </Card.Text>
+              <Card.Text>
+                <small className="text-muted" alt="author">
                   {story.author}
                 </small>
               </Card.Text>
