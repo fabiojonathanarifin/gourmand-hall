@@ -90,31 +90,8 @@ function PostStory() {
                 inputFieldPosition="top"
                 autocomplete
               />
-              {/* <h3>{console.log(tagsIds)}</h3> */}
             </div>
           </div>
-          {/* <Form.Label>Tags</Form.Label>
-          <div className="input-group">
-            <InputTags
-              values={state}
-              onTags={(value) => setState(value.values)}
-            />
-            <Button
-              variant="btn btn-outline-secondary"
-              type="button"
-              data-testid="button-clearAll"
-              onClick={() => {
-                setState([]);
-              }}
-            >
-              Delete All
-            </Button>
-          </div>
-          <ol>
-            {state.map((item, index) => (
-              <li key={item + index}>{item}</li>
-            ))}
-          </ol>*/}
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Example textarea</Form.Label>
