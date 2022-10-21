@@ -9,6 +9,7 @@ const KeyCodes = {
   enter: 13,
 };
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
+let placeholder = "#beef #american #vegan";
 
 function PostStory() {
   const [tags, setTags] = useState([]);
@@ -79,11 +80,12 @@ function PostStory() {
         {/* tag use react-bootstrap-tagsinput npm */}
         <Form.Group className="mb-3">
           <div className="app">
-            <h1> React Tags Example </h1>
+            <h1>Tags</h1>
             <div>
               <ReactTags
                 tags={tags}
                 delimiters={delimiters}
+                placeholder={placeholder}
                 handleDelete={handleDelete}
                 handleAddition={handleAddition}
                 handleDrag={handleDrag}
