@@ -13,6 +13,10 @@ module.exports.createUser = async (req, res) => {
   console.log(req.user);
 };
 
+module.exports.addInfo = async (req, res) => {
+  const additionalData = req.body;
+};
+
 module.exports.loginUser = async (req, res, next) => {
   passport.authenticate("local", (err, user) => {
     if (err) throw err;

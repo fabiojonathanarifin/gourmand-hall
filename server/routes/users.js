@@ -8,9 +8,12 @@ const {
   loginUser,
   getUser,
   logoutUser,
+  addInfo,
 } = require("../controllers/users");
 
 router.post("/register", catchAsync(createUser));
+
+router.post("/addinfo", isLoggedIn, addInfo);
 
 //registration
 // router.get("/register", user.renderRegister);
