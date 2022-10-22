@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Stack, Form, Button } from "react-bootstrap";
 import { WithContext as ReactTags } from "react-tag-input";
 import "./PostStory.css";
+import LightGenButton from "../../components/Buttons/Button/LightGenButton";
+import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 
 const KeyCodes = {
   comma: 188,
@@ -107,14 +109,18 @@ function PostStory() {
             className="submissionfield"
           />
         </Form.Group>
-        {/* <div className="d-flex justify-content-end"> */}
-        <Button className="me-2" variant="info" type="button">
+        <Stack direction="horizontal" className="mb-3" gap={3}>
+          {/* <div className="d-flex justify-content-end"> */}
+          <LightGenButton Value="Save Draft" />
+          {/* <Button className="me-2" variant="info" type="button">
           Save Draft
-        </Button>
-        <Button variant="primary" type="submit">
+        </Button> */}
+          <GeneralButton Value="Post" />
+          {/* <Button variant="primary" type="submit">
           Submit
-        </Button>
-        {/* </div> */}
+        </Button> */}
+          {/* </div> */}
+        </Stack>
       </Form>
     </div>
   );

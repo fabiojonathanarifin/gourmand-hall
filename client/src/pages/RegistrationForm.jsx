@@ -1,5 +1,5 @@
 import { Form, Button } from "react-bootstrap";
-import GeneralButton from "../components/Buttons/Button/GeneralButton";
+import LightGenButton from "../components/Buttons/Button/GeneralButton";
 
 function RegistrationForm() {
   return (
@@ -25,7 +25,7 @@ function RegistrationForm() {
           <Form.Label>Location</Form.Label>
           <Form.Control type="location" placeholder="Seattle, Washington" />
         </Form.Group>
-        <GeneralButton Value="Register" type="submit" />
+        <LightGenButton Value="Register" type="submit" />
         {/* <Button variant="primary" type="submit">
           Register
         </Button> */}
