@@ -27,7 +27,7 @@ const StoryThumbnail = ({ story }) => {
                 </small>
               </Card.Text>
               <Link to={`/story/${story._id}`}>
-                <GeneralButton Value="View More" />
+                <GeneralButton Value="View More" type="submit" />
               </Link>
             </Card.Body>
           </Col>
