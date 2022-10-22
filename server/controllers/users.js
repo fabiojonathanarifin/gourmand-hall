@@ -14,7 +14,10 @@ module.exports.createUser = async (req, res) => {
 };
 
 module.exports.addInfo = async (req, res) => {
-  const additionalData = req.body;
+  const UserInSessionID = req.user.id;
+  console.log(UserInSessionID);
+  await User.findByIdAndUpdate(UserInSessionID, req.body);
+  console.log(User);
 };
 
 module.exports.loginUser = async (req, res, next) => {
