@@ -51,10 +51,10 @@ function LoginForm() {
 
   return (
     <div className="mt-5">
-      <div>
+      {/* <div>
         <h1>Get User</h1>
         <button onClick={(e) => getUser(e.target.value)}>get User info</button>
-      </div>
+      </div> */}
       <h1>Login Form</h1>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <Form.Group className="mb-3">
