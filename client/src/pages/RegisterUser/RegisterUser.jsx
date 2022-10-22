@@ -1,6 +1,7 @@
 import { Container, Stack, Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import React, { useState } from "react";
+import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 import "./RegisterUser.css";
 function RegisterUser() {
   const [data, setData] = useState({
@@ -218,9 +219,10 @@ function RegisterUser() {
         <Form.Group className="mb-3">
           <Form.Check type="checkbox" label="Hooman yes?" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <GeneralButton Value="Register" type="submit" />
+        {/* <Button variant="primary" type="submit">
           Submit
-        </Button>
+        </Button> */}
       </Form>
     </Container>
   );
