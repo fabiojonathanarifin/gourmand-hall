@@ -81,10 +81,23 @@ function PostStory() {
         </Form.Group>
         {/* tag use react-bootstrap-tagsinput npm */}
         <Form.Group className="mb-3">
-          <div className="app">
+          <div>
             <h1>Tags</h1>
             <div>
               <ReactTags
+                className={{
+                  tags: "tagsClass",
+                  tagInput: "tagInputClass",
+                  tagInputField: "tagInputFieldClass",
+                  selected: "selectedClass",
+                  tag: "tagClass",
+                  remove: "removeClass",
+                  suggestions: "suggestionsClass",
+                  activeSuggestion: "activeSuggestionClass",
+                  editTagInput: "editTagInputClass",
+                  editTagInputField: "editTagInputField",
+                  clearAll: "clearAllClass",
+                }}
                 tags={tags}
                 delimiters={delimiters}
                 placeholder={placeholder}
