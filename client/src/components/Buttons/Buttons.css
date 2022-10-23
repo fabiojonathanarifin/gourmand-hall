@@ -10,14 +10,14 @@
     border: 1px solid #cc6f41 !important;
 }
 
-.navbtn {
-    border: 1px solid rgb(173, 171, 171) !important;
-    color: rgb(173, 171, 171) !important;
+.navigationbtn {
+    border: 1px solid rgba(204, 197, 197, 0.804) !important;
+    color: rgba(204, 197, 197, 0.804) !important;
     background-color: #ce5f31 !important;
     transition: 0.6s !important;
 }
 
-.navbtn:hover {
+.navigationbtn:hover {
     border: 1px solid whitesmoke !important;
     color: whitesmoke !important;
     background-color: #ce5f31 !important;

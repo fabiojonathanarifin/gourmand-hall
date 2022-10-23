@@ -3,10 +3,6 @@ import { Button } from "react-bootstrap";
 import "../Buttons.css";
 
 function NavButton(props) {
-  return (
-    <Button className="navbtn" variant="primary">
-      {props.Value}
-    </Button>
-  );
+  return <Button className="navigationbtn">{props.Value}</Button>;
 }
 export default NavButton;
