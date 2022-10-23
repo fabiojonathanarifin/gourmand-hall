@@ -4,6 +4,7 @@ Client:
 - make comment work on Story.jsx (showStory) page
 - fix Profile.jsx (social media)
 - Add tags to FE from BE
+- finish tags styling
 
 Server:
 - setUp routing for addition user data (birthday location etc)
