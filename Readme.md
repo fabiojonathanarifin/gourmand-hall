@@ -1,5 +1,10 @@
 Developer Notes:
 
+General: 
+- add Validation
+- add Authorization
+- add popup notification
+
 Client:
 - make comment work on Story.jsx (showStory) page
 - fix Profile.jsx (social media)
