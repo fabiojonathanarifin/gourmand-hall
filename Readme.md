@@ -3,8 +3,9 @@ Developer Notes:
 Client:
 - make comment work on Story.jsx (showStory) page
 - fix Profile.jsx (social media)
-- Add tags to FE from BE
 - finish tags styling
+- add Complete profile (Addinfo)
+- turn complete profile to Edit Profile
 
 Server:
 - setUp routing for addition user data (birthday location etc)
