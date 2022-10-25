@@ -11,9 +11,6 @@ function Profile() {
   const [data, setData] = useState({});
   const handleData = async () => {
     const response = await getUser();
-    if (response.success === false) {
-      window.location.replace(response.redirectDestination);
-    }
     setData(response.userData);
   };
   useEffect(() => {
