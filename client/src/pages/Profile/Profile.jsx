@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Stack, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./Profile.css";
 import sample from "../../assets/sample.jpeg";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 import Index from "../Index/Index";
-// import axios from "axios";
 import { getUser } from "../../api/index";
 
 function Profile() {
@@ -33,6 +33,14 @@ function Profile() {
                   src={sample}
                   alt="profile photo"
                 />
+                <div className="mt-2">
+                  <Stack direction="horizontal" gap={3}>
+                    <Link to="/addinfo">
+                      <GeneralButton Value="Edit Profile" />
+                    </Link>
+                    {/* <GeneralButton Value="Edit Profile" /> */}
+                  </Stack>
+                </div>
                 <div className="mt-4">
                   <Card.Text>
                     Followers: {data.followers ? `${data.followers}` : 0}
@@ -56,6 +64,19 @@ function Profile() {
                 <Card.Text>
                   Birthday: {data.birthday ? `${data.birthday}` : 0}
                 </Card.Text>
+                <Card.Text>
+                  Favorite Cuisine: {data.favCuisine ? `${data.favCuisine}` : 0}
+                </Card.Text>
+
+                <Card.Text>
+                  Favorite Food: {data.favFood ? `${data.favFood}` : 0}
+                </Card.Text>
+
+                <Card.Text>
+                  Location:{" "}
+                  {data.city && data.state ? `${data.city}, ${data.state}` : 0}
+                </Card.Text>
+
                 <Card>
                   <Card.Body>
                     <Card.Subtitle className="mb-3">About me</Card.Subtitle>
