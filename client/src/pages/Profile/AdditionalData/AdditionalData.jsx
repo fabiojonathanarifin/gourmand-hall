@@ -3,6 +3,7 @@ import axios from "axios";
 import { Card, Container, Form, Row, Col, Stack } from "react-bootstrap";
 import GeneralButton from "../../../components/Buttons/Button/GeneralButton";
 import { useEffect } from "react";
+import { getUser } from "../../../api/index";
 
 function AdditionalData() {
   const [data, setData] = useState({
@@ -10,10 +11,20 @@ function AdditionalData() {
     city: "",
     favCuisine: "",
     favFood: "",
+    birthday: "",
   });
 
+  const handleData = async () => {
+    const response = await getUser();
+    setData(response.userData);
+  };
+
+  useEffect(() => {
+    handleData();
+  }, []);
+
   const handleSubmit = async (e) => {
-    const { state, city, favCuisine, favFood } = data;
+    const { state, city, favCuisine, favFood, birthday } = data;
     const url = "http://localhost:5000";
     e.preventDefault();
     const result = await axios({
@@ -29,6 +40,7 @@ function AdditionalData() {
         city,
         favCuisine,
         favFood,
+        birthday,
       }),
     });
     console.log(result);
@@ -92,6 +104,16 @@ function AdditionalData() {
                     value={data.favFood}
                     type="text"
                     placeholder="Breakfast Bagel"
+                  />
+                </Col>
+                <Col>
+                  <Form.Label>Birthday</Form.Label>
+                  <Form.Control
+                    onChange={(e) => handleChange(e)}
+                    id="birthday"
+                    value={data.birthday}
+                    type="text"
+                    placeholder="xx/xx/xx"
                   />
                 </Col>
               </Stack>
