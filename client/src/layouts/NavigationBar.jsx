@@ -2,14 +2,23 @@ import React from "react";
 import NavButton from "../components/Buttons/Button/NavButton";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Stack, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Stack, Container } from "react-bootstrap";
 import { logoutUser } from "../api/index";
+import { getUser } from "../api/index";
 
 function NavigationBar() {
-  let handleClick = async (e) => {
+  let handleLogout = async (e) => {
     const response = await logoutUser();
     if (response.success === true) {
       window.location.replace("/login");
+    }
+    console.log(response);
+  };
+
+  let sessionLoginCheck = async (e) => {
+    const response = await getUser();
+    if (response.success === false) {
+      window.location.replace(response.redirectDestination);
     }
     console.log(response);
   };
@@ -28,10 +37,10 @@ function NavigationBar() {
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/post">
-              <Nav.Link>Post</Nav.Link>
+              <Nav.Link onClick={(e) => sessionLoginCheck(e)}>Post</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/profile">
-              <Nav.Link>Profile</Nav.Link>
+              <Nav.Link onClick={(e) => sessionLoginCheck(e)}>Profile</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/register">
               <Nav.Link>Register</Nav.Link>
@@ -45,7 +54,7 @@ function NavigationBar() {
                 <NavButton Value="Login" />
               </Link>
             </div>
-            <div onClick={(e) => handleClick(e)}>
+            <div onClick={(e) => handleLogout(e)}>
               <NavButton Value="Logout" />
             </div>
             <div className="vr" />
