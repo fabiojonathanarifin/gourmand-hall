@@ -11,6 +11,7 @@ Client:
 - finish tags styling
 - add Complete profile (Addinfo)
 - turn complete profile to Edit Profile
+- finish styling loginform (Center everything)
 
 Server:
 - setUp routing for addition user data (birthday location etc)
