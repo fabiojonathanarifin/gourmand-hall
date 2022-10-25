@@ -1,0 +1,10 @@
+.centerItems {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
