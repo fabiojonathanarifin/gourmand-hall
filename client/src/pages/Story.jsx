@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Card, Form } from "react-bootstrap";
 import LikeButtons from "../components/Buttons/LikeButtons";
 import { showStory } from "../api";
 import { useParams } from "react-router-dom";
+import { getUser } from "../api";
+
 function Story() {
   const [story, setStory] = useState([]);
+  let isLoggedIn = useRef();
 
+  const handleData = async () => {
+    const response = await getUser();
+    isLoggedIn.current = response.success;
+  };
+  console.log(isLoggedIn);
   //param store id from the parameter
   const param = useParams();
 
@@ -18,18 +26,22 @@ function Story() {
 
   useEffect(() => {
     data();
+    handleData();
   }, []);
-
+  console.log(isLoggedIn);
   return (
     <div className="mt-5">
       <h1></h1>
       <Card>
         <Card.Body>
-          <Card.Title>{story.title}</Card.Title>
-          <Card.Text>{story.story}</Card.Text>
-          <LikeButtons />
+          <Card.Title>{story.title ? story.title : "Bacon"}</Card.Title>
+          <Card.Text>
+            {story.story ? story.story : "BAboonfoewnowafniowehoifwe"}
+          </Card.Text>
+          {isLoggedIn.current ? <LikeButtons /> : "Please login to interact"}
+          {/* <LikeButtons /> */}
         </Card.Body>
-        <Card.Footer>
+        {/* <Card.Footer>
           <Form>
             <Form.Group>
               <Form.Control
@@ -43,7 +55,7 @@ function Story() {
               </div>
             </Form.Group>
           </Form>
-        </Card.Footer>
+        </Card.Footer> */}
       </Card>
     </div>
   );
