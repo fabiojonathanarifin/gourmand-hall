@@ -39,23 +39,26 @@ function Story() {
             {story.story ? story.story : "BAboonfoewnowafniowehoifwe"}
           </Card.Text>
           {isLoggedIn.current ? <LikeButtons /> : "Please login to interact"}
-          {/* <LikeButtons /> */}
         </Card.Body>
-        {/* <Card.Footer>
-          <Form>
-            <Form.Group>
-              <Form.Control
-                as="textarea"
-                rows={2}
-                placeholder="Comment on the story.."
-                className="comment"
-              />
-              <div className="mt-3">
-                <LikeButtons />
-              </div>
-            </Form.Group>
-          </Form>
-        </Card.Footer> */}
+        {isLoggedIn.current ? (
+          <Card.Footer>
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  placeholder="Comment on the story.."
+                  className="comment"
+                />
+                <div className="mt-3">
+                  <LikeButtons />
+                </div>
+              </Form.Group>
+            </Form>
+          </Card.Footer>
+        ) : (
+          ""
+        )}
       </Card>
     </div>
   );
