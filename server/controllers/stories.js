@@ -17,20 +17,30 @@ module.exports.getIndex = async (req, res) => {
 };
 
 module.exports.showStory = async (req, res) => {
-  if (req.isAuthenticated()) {
-    const story = await Story.findById(req.params.id)
-      .populate({
-        path: "comments",
-        populate: {
-          path: "author",
-        },
-      })
-      .populate("author");
-    res.json(story);
-    console.log("Authenticated");
-  } else {
-    console.log("not Authenticated");
-  }
+  const story = await Story.findById(req.params.id)
+    .populate({
+      path: "comments",
+      populate: {
+        path: "author",
+      },
+    })
+    .populate("author");
+  res.json(story);
+
+  // if (req.isAuthenticated()) {
+  //   const story = await Story.findById(req.params.id)
+  //     .populate({
+  //       path: "comments",
+  //       populate: {
+  //         path: "author",
+  //       },
+  //     })
+  //     .populate("author");
+  //   res.json(story);
+  //   console.log("Authenticated");
+  // } else {
+  //   console.log("not Authenticated");
+  // }
 };
 // module.exports.createPost = async (req, res) => {
 //   const post = req.body;
