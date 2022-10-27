@@ -7,7 +7,7 @@ General:
 
 Client:
 - make comment work on Story.jsx (showStory) page
-- fix Profile.jsx (social media)
+- fix Profile.jsx styling
 - finish tags styling
 - add Complete profile (Addinfo)
 - turn complete profile to Edit Profile
