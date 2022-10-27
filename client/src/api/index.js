@@ -16,7 +16,7 @@ export const getRestaurants = async () => {
   const response = await axios.get(`${url}/restaurant`);
   return response.data;
 };
-//hasn't applied it to the client side
+//hasn't been it to the client side
 export const showStory = async (id) => {
   const response = await axios({
     url: `${url}/story/` + id,
