@@ -13,6 +13,7 @@ Client:
 - turn complete profile to Edit Profile
 - finish styling loginform (Center everything)
 - fix login form styling
+- add author to PostStory.jsx
 
 Server:
 - setUp routing for addition user data (birthday location etc)
