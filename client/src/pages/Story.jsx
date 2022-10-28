@@ -1,19 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { Card, Form } from "react-bootstrap";
 import LikeButtons from "../components/Buttons/LikeButtons";
 import { showStory } from "../api";
 import { useParams } from "react-router-dom";
 import { getUser } from "../api";
+import GeneralButton from "../components/Buttons/Button/GeneralButton";
 
 function Story() {
   const [story, setStory] = useState([]);
+  const [commentData, setCommentData] = useState({
+    comment: "",
+  });
+
   let isLoggedIn = useRef();
+  let author = useRef();
 
   const handleData = async () => {
     const response = await getUser();
     isLoggedIn.current = response.success;
+    author.current = response.userData.username;
   };
-  console.log(isLoggedIn);
   //param store id from the parameter
   const param = useParams();
 
@@ -28,7 +35,33 @@ function Story() {
     data();
     handleData();
   }, []);
+
+  let handleSubmit = async (e) => {
+    const { comment } = commentData;
+    const url = "http://localhost:5000";
+    e.preventDefault();
+    const result = await axios({
+      url: `${url}/comment`,
+      method: "POST",
+      withCredentials: true,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      data: JSON.stringify({ comment, author: author.current }),
+    });
+    console.log(result);
+  };
+
+  let handleChange = (e) => {
+    const newData = { ...data };
+    newData[e.target.id] = e.target.value;
+    setCommentData(newData);
+    console.log(newData);
+  };
   console.log(isLoggedIn);
+  console.log(author);
+
   return (
     <div className="mt-5">
       <h1></h1>
@@ -40,16 +73,19 @@ function Story() {
         </Card.Body>
         {isLoggedIn.current ? (
           <Card.Footer>
-            <Form>
+            <Form onSubmit={(e) => handleSubmit(e)}>
               <Form.Group>
                 <Form.Control
+                  onChange={(e) => handleChange(e)}
+                  id="comment"
+                  value={commentData.comment}
                   as="textarea"
                   rows={2}
                   placeholder="Comment on the story.."
                   className="comment"
                 />
                 <div className="mt-3">
-                  <LikeButtons />
+                  <GeneralButton Value="Post" />
                 </div>
               </Form.Group>
             </Form>
