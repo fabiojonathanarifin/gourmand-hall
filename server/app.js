@@ -10,6 +10,7 @@ const passport = require("passport");
 const storyRoutes = require("./routes/stories");
 const userRoutes = require("./routes/users");
 const restaurantRoutes = require("./routes/restaurants");
+const commentRoutes = require("./routes/comments");
 
 const app = express();
 const cors = require("cors");
@@ -61,6 +62,7 @@ app.use((req, res, next) => {
 app.use("/", userRoutes);
 app.use("/", storyRoutes);
 app.use("/", restaurantRoutes);
+app.use("/", commentRoutes);
 
 app.get("/", function (req, res) {
   res.send({ status: "success" });
