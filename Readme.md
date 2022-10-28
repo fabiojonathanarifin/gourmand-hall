@@ -1,5 +1,8 @@
 Developer Notes:
 
+URGENT: 
+- fix createComment bug
+
 General: 
 - add Validation
 - add Authorization
