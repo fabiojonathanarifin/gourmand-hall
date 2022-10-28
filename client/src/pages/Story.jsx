@@ -34,10 +34,8 @@ function Story() {
       <h1></h1>
       <Card>
         <Card.Body>
-          <Card.Title>{story.title ? story.title : "Bacon"}</Card.Title>
-          <Card.Text>
-            {story.story ? story.story : "BAboonfoewnowafniowehoifwe"}
-          </Card.Text>
+          <Card.Title>{story.title}</Card.Title>
+          <Card.Text>{story.story}</Card.Text>
           {isLoggedIn.current ? <LikeButtons /> : "Please login to interact"}
         </Card.Body>
         {isLoggedIn.current ? (
