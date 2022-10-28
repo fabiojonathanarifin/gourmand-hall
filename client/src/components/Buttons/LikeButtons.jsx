@@ -6,11 +6,9 @@ function LikeButtons() {
   return (
     <>
       <Stack direction="horizontal" gap={2}>
-        <GeneralButton Value="Tasty" />
-        <GeneralButton Value="Slimy" />
-        <GeneralButton Value="Crunchy" />
+        <GeneralButton Value="Delicious" />
         <div className="ms-auto">
-          <GeneralButton Value="Submit" />
+          <GeneralButton Value="Post" />
         </div>
       </Stack>
     </>
