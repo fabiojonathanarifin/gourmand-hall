@@ -14,12 +14,12 @@ function Story() {
   });
 
   let isLoggedIn = useRef();
-  let author = useRef();
+  // let author = useRef();
 
   const handleData = async () => {
     const response = await getUser();
     isLoggedIn.current = response.success;
-    author.current = response.userData.username;
+    // author.current = response.userData.username;
   };
   //param store id from the parameter
   const param = useParams();
@@ -48,19 +48,21 @@ function Story() {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
       },
-      data: JSON.stringify({ comment, author: author.current }),
+      data: JSON.stringify({ comment }),
+      // data: JSON.stringify({ comment, author: author.current }),
     });
     console.log(result);
+    // console.log(result);
   };
 
   let handleChange = (e) => {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setCommentData(newData);
-    console.log(newData);
+    // console.log(newData);
   };
-  console.log(isLoggedIn);
-  console.log(author);
+  // console.log(isLoggedIn);
+  // console.log(author);
 
   return (
     <div className="mt-5">
