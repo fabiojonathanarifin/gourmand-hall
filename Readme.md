@@ -1,7 +1,8 @@
 Developer Notes:
 
 URGENT: 
-- fix createComment bug
+- connect comment reference to story
+
 
 General: 
 - add Validation
@@ -9,7 +10,7 @@ General:
 - add popup notification
 
 Client:
-- make comment work on Story.jsx (showStory) page
+- display comment on FE (for each user's post)
 - fix Profile.jsx styling
 - finish tags styling
 - add Complete profile (Addinfo)
@@ -19,6 +20,7 @@ Client:
 - add author to PostStory.jsx
 
 Server:
+- connect comment ref to story (after connecting it to author)
 - setUp routing for addition user data (birthday location etc)
 - fix catchAsync for controllers
 - BE for Additional Infomration
