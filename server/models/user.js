@@ -32,6 +32,7 @@ const UserSchema = new Schema({
   postsAmt: Number,
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+  // comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
   birthday: String,
   website: String,
   state: String,
