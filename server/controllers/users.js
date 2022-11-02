@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const passport = require("passport");
 
-//work on confirmed password
 module.exports.createUser = async (req, res) => {
   const { password } = req.body;
   const Users = new User(req.body);
