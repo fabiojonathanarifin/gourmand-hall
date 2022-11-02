@@ -21,7 +21,7 @@ function Story() {
   };
   //param store id from the parameter
   const param = useParams();
-
+  const storyId = param.id;
   //showStory is returning a promise
   //api> index> params as id
   const data = async () => {
@@ -36,7 +36,7 @@ function Story() {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
-    submitComment(commentData);
+    submitComment(commentData, storyId);
   };
 
   let handleChange = (e) => {
