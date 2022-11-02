@@ -10,8 +10,6 @@ module.exports.createComment = async (req, res) => {
     author: UserInSessionID,
     story: req.body.story,
   });
-  //User has to be imported from the model
-  // const user = await User.findByIdAndUpdate(UserInSessionID, comment);
   await comment.save(
     await User.findByIdAndUpdate(req.user.id, {
       $push: { comments: comment._id },
@@ -28,7 +26,11 @@ module.exports.createComment = async (req, res) => {
         if (!err) return console.log(Story);
       })
   );
-  console.log(comment);
+  res.json({
+    success: true,
+    message: "Comment Submitted!",
+    comment: req.body.comment,
+  });
 };
 
 // author, comments, likes, date, hidden
