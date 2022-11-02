@@ -137,6 +137,7 @@ export const submitComment = async (commentData, storyId) => {
     },
     data: JSON.stringify({ comment, story: storyId }),
   });
+  return result;
 };
 
 export const submitAdditionalData = async (additionalData) => {
