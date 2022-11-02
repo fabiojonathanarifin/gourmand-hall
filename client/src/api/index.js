@@ -3,9 +3,25 @@ import axios from "axios";
 const url = "http://localhost:5000";
 
 //======================LOGIN/LOGOUT==================
-export const loginUser = async () => {
-  const response = await axios.get(`${url}/login`);
-  return response.data;
+export const loginUser = async (data) => {
+  const { username, password } = data;
+
+  const myData = data;
+  console.log(myData);
+  const result = await axios({
+    url: `${url}/login`,
+    method: "POST",
+    withCredentials: true,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    data: JSON.stringify({
+      username,
+      password,
+    }),
+  });
+  return result;
 };
 
 export const logoutUser = async () => {
@@ -93,6 +109,7 @@ export const submitRegistration = async (userRegistrationData) => {
       socialMedia: { twitter, linkedIn, facebook, instagram },
     }),
   });
+  return result;
 };
 
 export const submitStory = async (tagsIds, storyData) => {
