@@ -3,6 +3,7 @@ import axios from "axios";
 import { Form, Stack } from "react-bootstrap";
 import "./LoginForm.css";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
+import { loginUser } from "../../api";
 // import { loginUser, getUser } from "../api";
 
 function LoginForm() {
@@ -12,28 +13,11 @@ function LoginForm() {
   });
 
   const handleSubmit = async (e) => {
-    const { username, password } = data;
-    const url = "http://localhost:5000";
     e.preventDefault();
-    const myData = data;
-    console.log(myData);
-    const result = await axios({
-      url: `${url}/login`,
-      method: "POST",
-      withCredentials: true,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      data: JSON.stringify({
-        username,
-        password,
-      }),
-    });
-    if (result.data.success === true) {
+    const response = await loginUser(data);
+    if (response.data.success === true) {
       window.location.replace("/index");
     }
-    console.log(result);
   };
   const handleChange = (e) => {
     const newdata = { ...data };
