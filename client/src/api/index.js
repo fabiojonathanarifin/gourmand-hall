@@ -125,7 +125,7 @@ export const submitStory = async (tagsIds, storyData) => {
   });
 };
 
-export const submitComment = async (commentData) => {
+export const submitComment = async (commentData, storyId) => {
   const { comment } = commentData;
   const result = await axios({
     url: `${url}/comment`,
@@ -135,7 +135,7 @@ export const submitComment = async (commentData) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
     },
-    data: JSON.stringify({ comment }),
+    data: JSON.stringify({ comment, story: storyId }),
   });
 };
 
