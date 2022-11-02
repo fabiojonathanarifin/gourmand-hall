@@ -1,10 +1,11 @@
-import { Container, Stack, Form, Button, Row, Col } from "react-bootstrap";
-import axios from "axios";
+import { Container, Stack, Form, Row, Col } from "react-bootstrap";
 import React, { useState } from "react";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 import "./RegisterUser.css";
+import { submitRegistration } from "../../api";
+
 function RegisterUser() {
-  const [data, setData] = useState({
+  const [registrationData, setRegistrationData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -19,19 +20,7 @@ function RegisterUser() {
   });
 
   const handleSubmit = async (e) => {
-    const {
-      firstName,
-      lastName,
-      email,
-      username,
-      password,
-      confirmPassword,
-      bio,
-      twitter,
-      linkedIn,
-      facebook,
-      instagram,
-    } = data;
+    const { password, confirmPassword } = registrationData;
     const url = "http://localhost:5000";
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -39,33 +28,13 @@ function RegisterUser() {
         "password and password validator is not the same, please redo password";
       return console.log(message);
     }
-    const myData = data;
-    console.log(myData);
-    const result = await axios({
-      url: `${url}/register`,
-      method: "POST",
-      withCredentials: true,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      data: JSON.stringify({
-        firstName,
-        lastName,
-        email,
-        username,
-        password,
-        confirmPassword,
-        bio,
-        socialMedia: { twitter, linkedIn, facebook, instagram },
-      }),
-    });
-    console.log(result);
+    submitRegistration(registrationData);
   };
+
   const handleChange = (e) => {
-    const newdata = { ...data };
+    const newdata = { ...registrationData };
     newdata[e.target.id] = e.target.value;
-    setData(newdata);
+    setRegistrationData(newdata);
     console.log(newdata);
   };
 
@@ -79,7 +48,7 @@ function RegisterUser() {
             <Form.Control
               onChange={(e) => handleChange(e)}
               id="firstName"
-              value={data.firstName}
+              value={registrationData.firstName}
               type="text"
               placeholder="First Name"
             />
@@ -89,7 +58,7 @@ function RegisterUser() {
             <Form.Control
               onChange={(e) => handleChange(e)}
               id="lastName"
-              value={data.lastName}
+              value={registrationData.lastName}
               type="text"
               placeholder="Last Name"
             />
@@ -101,7 +70,7 @@ function RegisterUser() {
             <Form.Control
               onChange={(e) => handleChange(e)}
               id="email"
-              value={data.email}
+              value={registrationData.email}
               type="email"
               placeholder="Enter email"
             />
@@ -116,7 +85,7 @@ function RegisterUser() {
             <Form.Control
               onChange={(e) => handleChange(e)}
               id="username"
-              value={data.username}
+              value={registrationData.username}
               type="text"
               placehodler="username"
             />
@@ -128,7 +97,7 @@ function RegisterUser() {
             <Form.Control
               onChange={(e) => handleChange(e)}
               id="password"
-              value={data.password}
+              value={registrationData.password}
               type="password"
               placeholder="Password"
             />
@@ -138,7 +107,7 @@ function RegisterUser() {
             <Form.Control
               onChange={(e) => handleChange(e)}
               id="confirmPassword"
-              value={data.confirmPassword}
+              value={registrationData.confirmPassword}
               type="password"
               placeholder="Password"
             />
@@ -149,7 +118,7 @@ function RegisterUser() {
           <Form.Control
             onChange={(e) => handleChange(e)}
             id="bio"
-            value={data.bio}
+            value={registrationData.bio}
             as="textarea"
             placeholder="Present yourself"
             style={{ height: "100px" }}
@@ -167,7 +136,7 @@ function RegisterUser() {
               <Form.Control
                 onChange={(e) => handleChange(e)}
                 id="twitter"
-                value={data.twitter}
+                value={registrationData.twitter}
                 type="text"
                 placeholder="Input link"
               />
@@ -181,7 +150,7 @@ function RegisterUser() {
               <Form.Control
                 onChange={(e) => handleChange(e)}
                 id="linkedIn"
-                value={data.linkedIn}
+                value={registrationData.linkedIn}
                 type="text"
                 placeholder="Input link"
               />
@@ -195,7 +164,7 @@ function RegisterUser() {
               <Form.Control
                 onChange={(e) => handleChange(e)}
                 id="facebook"
-                value={data.facebook}
+                value={registrationData.facebook}
                 type="text"
                 placeholder="Input link"
               />
@@ -209,7 +178,7 @@ function RegisterUser() {
               <Form.Control
                 onChange={(e) => handleChange(e)}
                 id="instagram"
-                value={data.instagram}
+                value={registrationData.instagram}
                 type="text"
                 placeholder="Input link"
               />
@@ -220,9 +189,6 @@ function RegisterUser() {
           <Form.Check type="checkbox" label="Hooman yes?" />
         </Form.Group>
         <GeneralButton Value="Register" type="submit" />
-        {/* <Button variant="primary" type="submit">
-          Submit
-        </Button> */}
       </Form>
     </Container>
   );

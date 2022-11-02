@@ -1,27 +1,28 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Stack, Form, Button } from "react-bootstrap";
 import { WithContext as ReactTags } from "react-tag-input";
 import "./PostStory.css";
 import LightGenButton from "../../components/Buttons/Button/LightGenButton";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
+import { submitStory } from "../../api";
+//https://github.com/react-tags/react-tags
 
 const KeyCodes = {
   comma: 188,
   enter: 13,
 };
+
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 let placeholder = "#beef #american #vegan";
 
 function PostStory() {
   const [tags, setTags] = useState([]);
-  const [data, setData] = useState({
+  const [storyData, setStoryData] = useState({
     title: "",
     story: "",
   });
-  //add author; author is the one in the current session
-  //=========input tags================
-  //https://github.com/react-tags/react-tags
+  //============================input tags================
+
   const handleDelete = (i) => {
     setTags(tags.filter((tag, index) => index !== i));
   };
@@ -32,37 +33,23 @@ function PostStory() {
 
   const handleDrag = (tag, currPos, newPos) => {
     const newTags = tags.slice();
-
     newTags.splice(currPos, 1);
     newTags.splice(newPos, 0, tag);
-
-    // re-render
     setTags(newTags);
   };
-  //=============input tags end=============
+
+  //==========================input tags end==========================
 
   let handleSubmit = async (e) => {
     const tagsIds = tags.map((tag) => tag.id);
-    const { title, story } = data;
-    const url = "http://localhost:5000";
     e.preventDefault();
-    const myData = data;
-    console.log(myData);
-    const result = await axios({
-      url: `${url}/story`,
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      data: JSON.stringify({ title, story, tags: tagsIds }),
-    });
-    console.log(result);
+    submitStory(tagsIds, storyData);
   };
+
   let handleChange = (e) => {
-    const newdata = { ...data };
+    const newdata = { ...storyData };
     newdata[e.target.id] = e.target.value;
-    setData(newdata);
+    setStoryData(newdata);
     console.log(newdata);
   };
   return (
@@ -74,7 +61,7 @@ function PostStory() {
           <Form.Control
             onChange={(e) => handleChange(e)}
             id="title"
-            value={data.title}
+            value={storyData.title}
             type="text"
             placeholder="title"
           />
@@ -115,7 +102,7 @@ function PostStory() {
           <Form.Control
             onChange={(e) => handleChange(e)}
             id="story"
-            value={data.story}
+            value={storyData.story}
             as="textarea"
             rows={3}
             placeholder="Your story starts here.."
@@ -123,16 +110,8 @@ function PostStory() {
           />
         </Form.Group>
         <Stack direction="horizontal" className="mb-3" gap={3}>
-          {/* <div className="d-flex justify-content-end"> */}
           <LightGenButton Value="Save Draft" />
-          {/* <Button className="me-2" variant="info" type="button">
-          Save Draft
-        </Button> */}
           <GeneralButton Value="Post" />
-          {/* <Button variant="primary" type="submit">
-          Submit
-        </Button> */}
-          {/* </div> */}
         </Stack>
       </Form>
     </div>

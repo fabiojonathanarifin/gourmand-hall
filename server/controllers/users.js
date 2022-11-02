@@ -15,9 +15,8 @@ module.exports.createUser = async (req, res) => {
 
 module.exports.addInfo = async (req, res) => {
   const UserInSessionID = req.user.id;
-  console.log(UserInSessionID);
+  console.log(req.body);
   const user = await User.findByIdAndUpdate(UserInSessionID, req.body);
-  console.log(user);
 };
 
 module.exports.loginUser = async (req, res, next) => {

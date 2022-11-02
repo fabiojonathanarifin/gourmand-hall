@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Card, Container, Form, Row, Col, Stack } from "react-bootstrap";
 import GeneralButton from "../../../components/Buttons/Button/GeneralButton";
-import { useEffect } from "react";
-import { getUser } from "../../../api/index";
+import { submitAdditionalData } from "../../../api/index";
 
 function AdditionalData() {
-  const [data, setData] = useState({
+  const [additionalData, setAdditionalData] = useState({
     state: "",
     city: "",
     favCuisine: "",
@@ -14,44 +12,15 @@ function AdditionalData() {
     birthday: "",
   });
 
-  const handleData = async () => {
-    const response = await getUser();
-    setData(response.userData);
-  };
-
-  useEffect(() => {
-    handleData();
-  }, []);
-
   const handleSubmit = async (e) => {
-    const { state, city, favCuisine, favFood, birthday } = data;
-    const url = "http://localhost:5000";
     e.preventDefault();
-    const result = await axios({
-      url: `${url}/addinfo`,
-      method: "POST",
-      withCredentials: true,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      data: JSON.stringify({
-        state,
-        city,
-        favCuisine,
-        favFood,
-        birthday,
-      }),
-    });
-    console.log(result);
-    if (result.data.success === false) {
-      window.location.replace(result.data.redirectDestination);
-    }
+    submitAdditionalData(additionalData);
   };
+
   const handleChange = (e) => {
-    const newdata = { ...data };
+    const newdata = { ...additionalData };
     newdata[e.target.id] = e.target.value;
-    setData(newdata);
+    setAdditionalData(newdata);
     console.log(newdata);
   };
   return (
@@ -66,7 +35,7 @@ function AdditionalData() {
                 <Form.Control
                   onChange={(e) => handleChange(e)}
                   id="state"
-                  value={data.state}
+                  value={additionalData.state}
                   type="text"
                   placeholder="Oregon"
                 />
@@ -76,7 +45,7 @@ function AdditionalData() {
                 <Form.Control
                   onChange={(e) => handleChange(e)}
                   id="city"
-                  value={data.city}
+                  value={additionalData.city}
                   type="text"
                   placeholder="Portland"
                 />
@@ -89,7 +58,7 @@ function AdditionalData() {
                   <Form.Control
                     onChange={(e) => handleChange(e)}
                     id="favCuisine"
-                    value={data.favCuisine}
+                    value={additionalData.favCuisine}
                     type="text"
                     placeholder="Japanese, Kaiseki, Modern American"
                   />
@@ -101,7 +70,7 @@ function AdditionalData() {
                   <Form.Control
                     onChange={(e) => handleChange(e)}
                     id="favFood"
-                    value={data.favFood}
+                    value={additionalData.favFood}
                     type="text"
                     placeholder="Breakfast Bagel"
                   />
@@ -111,7 +80,7 @@ function AdditionalData() {
                   <Form.Control
                     onChange={(e) => handleChange(e)}
                     id="birthday"
-                    value={data.birthday}
+                    value={additionalData.birthday}
                     type="text"
                     placeholder="xx/xx/xx"
                   />

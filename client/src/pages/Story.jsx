@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
 import { Card, Form } from "react-bootstrap";
 import LikeButtons from "../components/Buttons/LikeButtons";
-import { showStory } from "../api";
+import { showStory, submitComment } from "../api";
 import { useParams } from "react-router-dom";
 import { getUser } from "../api";
 import GeneralButton from "../components/Buttons/Button/GeneralButton";
@@ -14,12 +13,11 @@ function Story() {
   });
 
   let isLoggedIn = useRef();
-  // let author = useRef();
 
+  //Change into fetchUserData
   const handleData = async () => {
     const response = await getUser();
     isLoggedIn.current = response.success;
-    // author.current = response.userData.username;
   };
   //param store id from the parameter
   const param = useParams();
@@ -37,32 +35,15 @@ function Story() {
   }, []);
 
   let handleSubmit = async (e) => {
-    const { comment } = commentData;
-    const url = "http://localhost:5000";
     e.preventDefault();
-    const result = await axios({
-      url: `${url}/comment`,
-      method: "POST",
-      withCredentials: true,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      data: JSON.stringify({ comment }),
-      // data: JSON.stringify({ comment, author: author.current }),
-    });
-    console.log(result);
-    // console.log(result);
+    submitComment(commentData);
   };
 
   let handleChange = (e) => {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setCommentData(newData);
-    // console.log(newData);
   };
-  // console.log(isLoggedIn);
-  // console.log(author);
 
   return (
     <div className="mt-5">
