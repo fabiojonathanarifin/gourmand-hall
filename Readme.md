@@ -8,6 +8,7 @@ General:
 - add Validation
 - add Authorization
 - add popup notification
+- add unit testing(jest, testing library)
 
 Client:
 - display comment on FE (for each user's post)
@@ -18,6 +19,7 @@ Client:
 - finish styling loginform (Center everything)
 - fix login form styling
 - add author to PostStory.jsx
+- move POST axios from pages to API
 
 Server:
 - connect comment ref to story (after connecting it to author)
