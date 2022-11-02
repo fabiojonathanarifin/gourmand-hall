@@ -14,7 +14,11 @@ function AdditionalData() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    submitAdditionalData(additionalData);
+    const response = await submitAdditionalData(additionalData);
+    console.log(response);
+    if (response.data.success === false) {
+      window.location.replace(response.data.redirectDestination);
+    }
   };
 
   const handleChange = (e) => {
