@@ -28,7 +28,11 @@ function RegisterUser() {
         "password and password validator is not the same, please redo password";
       return console.log(message);
     }
-    submitRegistration(registrationData);
+    const response = await submitRegistration(registrationData);
+    console.log(response);
+    if (response.data.success === true) {
+      window.location.replace("/index");
+    }
   };
 
   const handleChange = (e) => {
