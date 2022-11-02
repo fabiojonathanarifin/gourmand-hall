@@ -36,7 +36,9 @@ function Story() {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
-    submitComment(commentData, storyId);
+    const response = await submitComment(commentData, storyId);
+    //repsonse included message to client and the actual comment
+    console.log(response);
   };
 
   let handleChange = (e) => {
