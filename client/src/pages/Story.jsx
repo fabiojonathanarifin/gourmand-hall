@@ -3,7 +3,7 @@ import { Card, Form } from "react-bootstrap";
 import LikeButtons from "../components/Buttons/LikeButtons";
 import { showStory, submitComment } from "../api";
 import { useParams } from "react-router-dom";
-import { getUser } from "../api";
+import { getUser, getComments } from "../api";
 import GeneralButton from "../components/Buttons/Button/GeneralButton";
 
 function Story() {
@@ -25,20 +25,27 @@ function Story() {
   //showStory is returning a promise
   //api> index> params as id
   const data = async () => {
-    const response = await showStory(param.id);
+    const response = await showStory(storyId);
     setStory(response);
+    // console.log(storyId);
+  };
+
+  const handleComments = async () => {
+    const response = await getComments(storyId);
+    console.log(response);
   };
 
   useEffect(() => {
     data();
     handleData();
+    handleComments();
   }, []);
 
   let handleSubmit = async (e) => {
     e.preventDefault();
     const response = await submitComment(commentData, storyId);
     //repsonse included message to client and the actual comment
-    console.log(response);
+    // console.log(response.data);
   };
 
   let handleChange = (e) => {
@@ -56,6 +63,10 @@ function Story() {
           <Card.Text>{story.story}</Card.Text>
           {isLoggedIn.current ? <LikeButtons /> : "Please login to interact"}
         </Card.Body>
+        <Card>
+          <Card.Subtitle className="mb-2 text-muted">Author</Card.Subtitle>
+          <Card.Body>Comment</Card.Body>
+        </Card>
         {isLoggedIn.current ? (
           <Card.Footer>
             <Form onSubmit={(e) => handleSubmit(e)}>
