@@ -30,7 +30,17 @@ module.exports.createComment = async (req, res) => {
     success: true,
     message: "Comment Submitted!",
     comment: req.body.comment,
+    author: [req.user.firstName, req.user.lastName],
   });
+};
+
+module.exports.getComments = async (req, res) => {
+  //get parameter of stories, and display only stories that have comments
+  const story = await Story.findById(req.params.storyId).populate({
+    path: "comments",
+    populate: { path: "author" },
+  });
+  res.json(story.comments);
 };
 
 // author, comments, likes, date, hidden
