@@ -12,7 +12,7 @@ router.get("/index", catchAsync(getIndex));
 // router.get("/new", renderNewForm);
 
 // id
-router.get("/story/:id", catchAsync(showStory));
+router.get("/:id", catchAsync(showStory));
 // router.put("/:id", updateStory);
 // router.delete("/:id", deleteStory);
 
