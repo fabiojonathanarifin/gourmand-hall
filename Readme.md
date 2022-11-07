@@ -2,13 +2,14 @@ Developer Notes:
 
 URGENT: 
 - connect comment reference to story
-
+- getComments return arrays of comments of post... display comment
 
 General: 
 - add Validation
 - add Authorization
 - add popup notification
 - add unit testing(jest, testing library)
+
 
 Client:
 - display comment on FE (for each user's post)
