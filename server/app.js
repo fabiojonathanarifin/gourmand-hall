@@ -60,9 +60,9 @@ app.use((req, res, next) => {
 //--------------------------------------- END OF MIDDLEWARE -----------------------------------------//
 
 app.use("/", userRoutes);
-app.use("/", storyRoutes);
+app.use("/stories", storyRoutes);
 app.use("/", restaurantRoutes);
-app.use("/", commentRoutes);
+app.use("/story/", commentRoutes);
 
 app.get("/", function (req, res) {
   res.send({ status: "success" });
