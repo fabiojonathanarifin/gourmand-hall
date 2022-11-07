@@ -10,6 +10,7 @@ function Index() {
   const data = async () => {
     const response = await getIndex();
     setStories(response);
+    console.log(response);
   };
 
   //useEffect display the data when page is opened
