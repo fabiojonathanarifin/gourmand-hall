@@ -18,6 +18,7 @@ function Index() {
   useEffect(() => {
     data();
   }, []);
+
   return (
     <>
       <h1>Stories</h1>

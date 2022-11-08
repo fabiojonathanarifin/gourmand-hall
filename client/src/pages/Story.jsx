@@ -49,14 +49,6 @@ function Story() {
     }
     console.log(commentDisplayData);
     setDisplayComments(commentDisplayData);
-    // console.log(response);
-    // const commentAuthorArray = [
-    //   response[0].author.firstName,
-    //   response[0].author.lastName,
-    // ];
-    // const commentAuthor = commentAuthorArray.join(" ");
-    // const comment = response[0].comment;
-    // console.log(comment);
   };
 
   useEffect(() => {
