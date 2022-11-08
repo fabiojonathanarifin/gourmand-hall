@@ -1,8 +1,6 @@
 Developer Notes:
 
 URGENT: 
-- connect comment reference to story
-- getComments return arrays of comments of post... display comment
 
 General: 
 - add Validation
@@ -12,7 +10,7 @@ General:
 
 
 Client:
-- display comment on FE (for each user's post)
+- comment Styling
 - fix Profile.jsx styling
 - finish tags styling
 - add Complete profile (Addinfo)
