@@ -48,6 +48,11 @@ export const getIndex = async () => {
   return response.data;
 };
 
+export const getNotifications = async () => {
+  const response = await axios.get(`${url}/notifications`);
+  return response.data;
+};
+
 export const getRestaurants = async () => {
   const response = await axios.get(`${url}/restaurant`);
   return response.data;
