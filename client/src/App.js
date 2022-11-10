@@ -10,6 +10,7 @@ import Pricing from "./pages/Pricing";
 import Story from "./pages/Story";
 import LocalFavorites from "./pages/Index/LocalFavorites/LocalFavorites";
 import Footer from "./layouts/Footer";
+import Notification from "./pages/Notification/Notification";
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterUser />} />
           <Route exact path="/story/:id" element={<Story />} />
+          <Route path="/notification" element={<Notification />} />
         </Routes>
       </Container>
       <Footer />
