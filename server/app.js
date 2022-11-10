@@ -11,6 +11,7 @@ const storyRoutes = require("./routes/stories");
 const userRoutes = require("./routes/users");
 const restaurantRoutes = require("./routes/restaurants");
 const commentRoutes = require("./routes/comments");
+const notificationRoutes = require("./routes/notifications");
 
 const app = express();
 const cors = require("cors");
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
 //--------------------------------------- END OF MIDDLEWARE -----------------------------------------//
 
 app.use("/", userRoutes);
+app.use("/", notificationRoutes);
 app.use("/stories", storyRoutes);
 app.use("/", restaurantRoutes);
 app.use("/story/", commentRoutes);
