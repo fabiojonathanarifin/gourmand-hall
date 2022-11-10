@@ -4,6 +4,7 @@ import { Form, Stack } from "react-bootstrap";
 import "./LoginForm.css";
 import GeneralButton from "../../components/Buttons/Button/GeneralButton";
 import { loginUser } from "../../api";
+import { Notification } from "../Notification/Notification";
 
 function LoginForm() {
   const [data, setData] = useState({
