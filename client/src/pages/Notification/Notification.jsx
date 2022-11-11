@@ -9,8 +9,13 @@ function Notification() {
   const [notificationData, setNotificationData] = useState([]);
   const handleNotification = async () => {
     const response = await getNotifications();
-    // console.log(response);
-    setNotificationData(response.notifications[0].message);
+    // console.log(response.notifications);
+    for (let object of response.notifications) {
+      object.type = "FAIL"
+        ? setNotificationData(object.message)
+        : setNotificationData("error");
+    }
+    // setNotificationData(response.notifications[0].message);
     // console.log(response.notifications[0].message);
     console.log(notificationData);
   };
