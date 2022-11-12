@@ -5,6 +5,7 @@ import "./RegisterUser.css";
 import { submitRegistration } from "../../api";
 
 function RegisterUser() {
+  const [validated, setValidated] = useState(false);
   const [registrationData, setRegistrationData] = useState({
     firstName: "",
     lastName: "",
@@ -20,6 +21,14 @@ function RegisterUser() {
   });
 
   const handleSubmit = async (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    setValidated(true);
+
     const { password, confirmPassword } = registrationData;
     const url = "http://localhost:5000";
     e.preventDefault();
@@ -45,17 +54,22 @@ function RegisterUser() {
   return (
     <Container className="mt-5 mb-5">
       <h1>Register User</h1>
-      <Form onSubmit={(e) => handleSubmit(e)}>
+      <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e)}>
         <Form.Group as={Row} className="mb-3">
           <Col>
             <Form.Label>First Name</Form.Label>
             <Form.Control
+              required
               onChange={(e) => handleChange(e)}
               id="firstName"
               value={registrationData.firstName}
               type="text"
               placeholder="First Name"
             />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid first name
+            </Form.Control.Feedback>
           </Col>
           <Col>
             <Form.Label>Last Name</Form.Label>
