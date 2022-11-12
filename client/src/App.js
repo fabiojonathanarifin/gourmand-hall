@@ -13,6 +13,8 @@ import Footer from "./layouts/Footer";
 import Notification from "./pages/Notification/Notification";
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
@@ -34,6 +36,7 @@ function App() {
           <Route exact path="/story/:id" element={<Story />} />
           <Route path="/notification" element={<Notification />} />
         </Routes>
+        <ToastContainer />
       </Container>
       <Footer />
     </div>
