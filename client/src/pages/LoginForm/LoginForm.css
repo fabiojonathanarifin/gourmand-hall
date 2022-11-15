@@ -1,4 +1,4 @@
-.centerItems {
+.center-items {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -7,4 +7,8 @@
 .item {
     display: flex;
     align-items: center;
+}
+
+.display-error-message {
+    color: rgba(255, 0, 0, 0.786);
 }
