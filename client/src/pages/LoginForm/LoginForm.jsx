@@ -14,21 +14,21 @@ function LoginForm() {
     password: "",
   });
   const [notificationData, setNotificationData] = useState([]);
+  const [loginResponse, setLoginResponse] = useState([]);
   const handleNotification = async () => {
     const response = await getNotifications();
     let obj = response.notifications.find((e) => e.type === "FAIL");
     setNotificationData(obj.message);
   };
+  let displayErrorMessage = "Wrong username/password";
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await loginUser(data);
     if (response.data.success === true) {
       window.location.replace("/index");
-      toast(notificationData);
     }
-    // } else {
-    //   toast(notificationData);
-    // }
+    toast(notificationData);
+    setLoginResponse(response.data.success);
   };
   const handleChange = (e) => {
     const newdata = { ...data };
@@ -48,6 +48,7 @@ function LoginForm() {
           <h1>GourmandHall</h1>
         </div>
         <Form onSubmit={(e) => handleSubmit(e)}>
+          <text>{loginResponse ? "" : displayErrorMessage}</text>
           <Form.Group className="mb-3">
             <Form.Control
               onChange={(e) => handleChange(e)}
