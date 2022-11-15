@@ -42,13 +42,17 @@ function LoginForm() {
   }, []);
   // const notify = () => toast(notificationData);
   return (
-    <div className="centerItems mt-5">
+    <div className="center-items mt-5">
       <Stack direction="horizontal" gap={3}>
         <div>
           <h1>GourmandHall</h1>
         </div>
         <Form onSubmit={(e) => handleSubmit(e)}>
-          <text>{loginResponse ? "" : displayErrorMessage}</text>
+          <div className="mb-2">
+            <text className="display-error-message">
+              {loginResponse ? "" : displayErrorMessage}
+            </text>
+          </div>
           <Form.Group className="mb-3">
             <Form.Control
               onChange={(e) => handleChange(e)}
