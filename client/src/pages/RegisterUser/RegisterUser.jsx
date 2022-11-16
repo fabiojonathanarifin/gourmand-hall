@@ -80,18 +80,27 @@ function RegisterUser() {
               type="text"
               placeholder="Last Name"
             />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid first name
+            </Form.Control.Feedback>
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Col lg={6}>
             <Form.Label>Email address</Form.Label>
             <Form.Control
+              required
               onChange={(e) => handleChange(e)}
               id="email"
               value={registrationData.email}
               type="email"
               placeholder="Enter email"
             />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid email
+            </Form.Control.Feedback>
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -101,6 +110,7 @@ function RegisterUser() {
           <Col md={6}>
             <Form.Label>Username</Form.Label>
             <Form.Control
+              required
               onChange={(e) => handleChange(e)}
               id="username"
               value={registrationData.username}
@@ -108,11 +118,16 @@ function RegisterUser() {
               placehodler="username"
             />
           </Col>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid username
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Col md={6}>
             <Form.Label>Password</Form.Label>
             <Form.Control
+              required
               onChange={(e) => handleChange(e)}
               id="password"
               value={registrationData.password}
@@ -120,6 +135,10 @@ function RegisterUser() {
               placeholder="Password"
             />
           </Col>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid password
+          </Form.Control.Feedback>
           <Col md={6}>
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
@@ -130,6 +149,10 @@ function RegisterUser() {
               placeholder="Password"
             />
           </Col>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Password is different from confirmed password
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Bio</Form.Label>
